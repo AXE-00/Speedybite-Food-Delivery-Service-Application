@@ -1,6 +1,8 @@
 package com.niit.bej.user.auth.controller;
 
+import com.niit.bej.user.auth.exception.InvalidCredentialsException;
 import com.niit.bej.user.auth.exception.UserAlreadyExistsException;
+import com.niit.bej.user.auth.exception.UserNotFoundException;
 import com.niit.bej.user.auth.model.User;
 import com.niit.bej.user.auth.service.UserService;
 import com.niit.bej.user.auth.service.security.SecurityTokenGenerator;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/home")
@@ -33,4 +37,22 @@ public class UserController {
             return new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
         }
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser(@RequestBody User user) {
+        try {
+            boolean isUserLoggedIn = this.userService.loginUser(user);
+            if (isUserLoggedIn) {
+                Map<String, String> generatedToken = this.securityTokenGenerator.generateToken(user);
+                return new ResponseEntity<>(generatedToken, HttpStatus.OK);
+            } else {
+                throw new InvalidCredentialsException("Email or Password incorrect!");
+            }
+        } catch (UserNotFoundException exception) {
+            return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+        } catch (InvalidCredentialsException exception) {
+            return new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
+        }
+    }
+
 }
