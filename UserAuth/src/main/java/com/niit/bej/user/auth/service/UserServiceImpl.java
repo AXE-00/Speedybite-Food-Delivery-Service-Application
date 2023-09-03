@@ -32,6 +32,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean loginUser(User user) throws InvalidCredentialsException, UserNotFoundException {
-        return false;
+        Optional<User> optionalUser = this.userRepository.findUserByEmail(user.getEmail());
+        if (optionalUser.isPresent()) {
+            User userInDatabase = optionalUser.get();
+            if (userInDatabase.getEmail().equals(user.getEmail()) && userInDatabase.getPassword().equals(user.getPassword())) {
+                return true;
+            } else {
+                throw new InvalidCredentialsException("Email or Password incorrect");
+            }
+        } else {
+            throw new UserNotFoundException("User with email Id: " + user.getEmail() + " does not exists!");
+        }
     }
 }
