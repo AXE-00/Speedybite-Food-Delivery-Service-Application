@@ -11,6 +11,14 @@ services:
       MYSQL_ROOT_PASSWORD: ashutosh
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
+  user-auth-service:
+    build: UserAuth/
+    container_name: user-auth-service-container
+    ports:
+      - "8081:8081"
+    networks: [ speedybite-app-network ]
+    depends_on: [ mysql-database-service ]
+    restart: always
 
 networks:
   speedybite-app-network:
