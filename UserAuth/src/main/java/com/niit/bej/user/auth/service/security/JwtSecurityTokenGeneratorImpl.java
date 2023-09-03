@@ -1,7 +1,11 @@
 package com.niit.bej.user.auth.service.security;
 
 import com.niit.bej.user.auth.model.User;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 public class JwtSecurityTokenGeneratorImpl implements SecurityTokenGenerator {
@@ -12,6 +16,17 @@ public class JwtSecurityTokenGeneratorImpl implements SecurityTokenGenerator {
 
     @Override
     public Map<String, String> generateToken(User user) {
-        return null;
+        HashMap<String, Object> claims = new HashMap<>();
+        claims.put("email", user.getEmail());
+        String token = Jwts.builder()
+                .setIssuedAt(new Date())
+                .setIssuer("user-auth")
+                .setExpiration(new Date(System.currentTimeMillis() + MILLISECOND * SECONDS * MINUTES * DURATION))
+                .setClaims(claims)
+                .setSubject(user.getEmail())
+                .signWith(SignatureAlgorithm.HS256, "password")
+                .compact();
+
+        return Map.of("token", token, "message", user.getEmail() + " logged in successfully!");
     }
 }
