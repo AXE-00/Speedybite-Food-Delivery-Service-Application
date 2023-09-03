@@ -16,6 +16,10 @@
     <description>A food delivery service application and restaurant discovery application</description>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>UserAuth</module>
+    </modules>
+
     <properties>
         <java.version>17</java.version>
     </properties>
