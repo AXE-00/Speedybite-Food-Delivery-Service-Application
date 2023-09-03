@@ -8,6 +8,8 @@ import com.niit.bej.user.auth.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -20,7 +22,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User registerUser(User user) throws UserAlreadyExistsException {
-        return null;
+        Optional<User> optionalUser = this.userRepository.findUserByEmail(user.getEmail());
+        if (optionalUser.isPresent()) {
+            throw new UserAlreadyExistsException("User With email Id: " + user.getEmail() + " already exists!");
+        } else {
+            return this.userRepository.save(user);
+        }
     }
 
     @Override
