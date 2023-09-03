@@ -1,0 +1,23 @@
+server:
+  port: 8081
+  error:
+    include-message: always
+spring:
+  application:
+    name: user-auth-service
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql-container:3306/speedybite_user_db?createDatabaseIfNotExist=true
+    username: root
+    password: ashutosh
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+#Add eureka config after creating eureka server
