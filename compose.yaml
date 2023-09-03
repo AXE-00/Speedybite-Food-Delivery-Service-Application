@@ -1,1 +1,17 @@
+version: "3"
+
 services:
+  mysql-database-service:
+    image: mysql
+    container_name: mysql-container
+    ports:
+      - "3307:3306"
+    networks: [ speedybite-app-network ]
+    environment:
+      MYSQL_ROOT_PASSWORD: ashutosh
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+
+networks:
+  speedybite-app-network:
+    driver: bridge
