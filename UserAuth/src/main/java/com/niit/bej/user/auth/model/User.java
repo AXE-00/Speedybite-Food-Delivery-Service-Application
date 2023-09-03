@@ -1,9 +1,19 @@
 package com.niit.bej.user.auth.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import java.util.Objects;
 
+@Entity
+@Table(name = "speedybite_users")
 public class User {
+    @Id
+    @Column(name = "email", length = 50, unique = true, nullable = false)
     private String email;
+    @Column(name = "password", length = 30, unique = true, nullable = false)
     private String password;
 
     public User() {
