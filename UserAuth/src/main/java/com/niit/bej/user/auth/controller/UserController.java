@@ -4,15 +4,14 @@ import com.niit.bej.user.auth.exception.InvalidCredentialsException;
 import com.niit.bej.user.auth.exception.UserAlreadyExistsException;
 import com.niit.bej.user.auth.exception.UserNotFoundException;
 import com.niit.bej.user.auth.model.User;
+import com.niit.bej.user.auth.repository.UserRepository;
 import com.niit.bej.user.auth.service.UserService;
 import com.niit.bej.user.auth.service.security.SecurityTokenGenerator;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -20,7 +19,11 @@ import java.util.Map;
 @RequestMapping("/home")
 public class UserController {
     private final UserService userService;
+
     private final SecurityTokenGenerator securityTokenGenerator;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     public UserController(UserService userService, SecurityTokenGenerator securityTokenGenerator) {
@@ -41,8 +44,8 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody User user) {
         try {
-            boolean isUserLoggedIn = this.userService.loginUser(user);
-            if (isUserLoggedIn) {
+            User retrievedUser = this.userService.loginUser(user);
+            if (retrievedUser != null) {
                 Map<String, String> generatedToken = this.securityTokenGenerator.generateToken(user);
                 return new ResponseEntity<>(generatedToken, HttpStatus.OK);
             } else {
@@ -55,4 +58,23 @@ public class UserController {
         }
     }
 
+    @PutMapping("/updateUser/{email}")
+    public ResponseEntity<?> updateUser(@PathVariable String email, @RequestBody UpdateRequest request) {
+
+        try {
+            User updatedUser = userService.updateUser(email, request.getPassword(), request.getImageName(), request.getPhoneNumber());
+            return ResponseEntity.ok(updatedUser);
+        } catch (UserNotFoundException exception) {
+            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @Getter
+    static class UpdateRequest {
+        private String password;
+        private String phoneNumber;
+        private String imageName;
+    }
 }
