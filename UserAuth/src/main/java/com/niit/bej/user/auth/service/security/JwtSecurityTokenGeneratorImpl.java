@@ -20,7 +20,6 @@ public class JwtSecurityTokenGeneratorImpl implements SecurityTokenGenerator {
     public Map<String, String> generateToken(User user) {
         HashMap<String, Object> claims = new HashMap<>();
         claims.put("email", user.getEmail());
-        claims.put("role", user.getRole());
         String token = Jwts.builder()
                 .setIssuedAt(new Date())
                 .setIssuer("user-auth")
@@ -31,6 +30,6 @@ public class JwtSecurityTokenGeneratorImpl implements SecurityTokenGenerator {
                 .signWith(SignatureAlgorithm.HS256, "U3BlZWR5Qml0ZXNGb29kRGVsaXZlcnlTZXJ2aWNl")
                 .compact();
 
-        return Map.of("token", token, "message", user.getEmail() + " logged in successfully!", "email", user.getEmail(), "role", user.getRole());
+        return Map.of("token", token, "message", user.getEmail() + " logged in successfully!", "email", user.getEmail());
     }
 }
