@@ -20,15 +20,17 @@ public class JwtSecurityTokenGeneratorImpl implements SecurityTokenGenerator {
     public Map<String, String> generateToken(User user) {
         HashMap<String, Object> claims = new HashMap<>();
         claims.put("email", user.getEmail());
+        claims.put("role", user.getRole());
         String token = Jwts.builder()
                 .setIssuedAt(new Date())
                 .setIssuer("user-auth")
                 .setExpiration(new Date(System.currentTimeMillis() + MILLISECOND * SECONDS * MINUTES * DURATION))
                 .setClaims(claims)
                 .setSubject(user.getEmail())
-                .signWith(SignatureAlgorithm.HS256, "password")
+                //Key: SpeedyBitesFoodDeliveryService encoded in Base64 = U3BlZWR5Qml0ZXNGb29kRGVsaXZlcnlTZXJ2aWNl
+                .signWith(SignatureAlgorithm.HS256, "U3BlZWR5Qml0ZXNGb29kRGVsaXZlcnlTZXJ2aWNl")
                 .compact();
 
-        return Map.of("token", token, "message", user.getEmail() + " logged in successfully!");
+        return Map.of("token", token, "message", user.getEmail() + " logged in successfully!", "email", user.getEmail(), "role", user.getRole());
     }
 }
