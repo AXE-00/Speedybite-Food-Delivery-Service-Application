@@ -25,4 +25,7 @@ public interface UserService {
 
     boolean addAddress(String email, Address address);
 
+    User getUserName(String email);
+
+    Address getAddress(String email);
 }
