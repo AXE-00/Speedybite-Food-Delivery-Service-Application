@@ -16,4 +16,7 @@ public interface UserService {
 
     List<FavouriteCart> getListOfFavouriteById(String email) throws FavouriteItemNotFoundException;
 
+    void removeFavoriteById(String email, int itemId) throws FavouriteItemNotFoundException;
+
+    boolean favouriteItemExists(String email, int itemId);
 }
