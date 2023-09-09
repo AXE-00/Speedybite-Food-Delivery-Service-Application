@@ -1,13 +1,19 @@
 package com.niit.bej.user.service.service;
 
+import com.niit.bej.user.service.exception.FavouriteItemNotFoundException;
 import com.niit.bej.user.service.exception.UserNotFoundException;
 import com.niit.bej.user.service.model.FavouriteCart;
 import com.niit.bej.user.service.model.User;
 
+import java.util.List;
+
 public interface UserService {
-    public User addUser(User user);
+    User addUser(User user);
 
-    public User addFavouritesInList(String email, FavouriteCart favouriteCart);
+    User addFavouritesInList(String email, FavouriteCart favouriteCart);
 
-    public User updateUser(String email, User updatedUser) throws UserNotFoundException;
+    User updateUser(String email, User updatedUser) throws UserNotFoundException;
+
+    List<FavouriteCart> getListOfFavouriteById(String email) throws FavouriteItemNotFoundException;
+
 }
