@@ -18,6 +18,7 @@
 
     <modules>
         <module>UserAuth</module>
+        <module>UserService</module>
     </modules>
 
     <properties>
