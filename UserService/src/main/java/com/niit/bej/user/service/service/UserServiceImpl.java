@@ -5,9 +5,11 @@ import com.niit.bej.user.service.exception.UserNotFoundException;
 import com.niit.bej.user.service.model.Address;
 import com.niit.bej.user.service.model.FavouriteCart;
 import com.niit.bej.user.service.model.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService {
     @Override
     public User addUser(User user) {
