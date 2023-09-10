@@ -26,6 +26,7 @@ public class User implements Serializable {
     private String role = "user";
     private Address address;
     private String city;
-    private byte[] imageName;
+    private byte[] profileImage;
+    private String imageName;
     private List<FavouriteCart> favouriteCartList;
 }
