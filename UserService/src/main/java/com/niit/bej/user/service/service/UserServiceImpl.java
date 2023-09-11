@@ -117,6 +117,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean favouriteItemExists(String email, int itemId) {
+        List<FavouriteCart> favouriteCartList = userRepository.findById(email).get().getFavouriteCartList();
+        for (FavouriteCart list : favouriteCartList) {
+            if (list.getItemId() == itemId) {
+                return true;
+            }
+        }
         return false;
     }
 
