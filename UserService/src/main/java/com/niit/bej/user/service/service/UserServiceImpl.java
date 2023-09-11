@@ -5,12 +5,24 @@ import com.niit.bej.user.service.exception.UserNotFoundException;
 import com.niit.bej.user.service.model.Address;
 import com.niit.bej.user.service.model.FavouriteCart;
 import com.niit.bej.user.service.model.User;
+import com.niit.bej.user.service.proxy.UserProxy;
+import com.niit.bej.user.service.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
+    private final UserRepository userRepository;
+    private final UserProxy userProxy;
+
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository, UserProxy userProxy) {
+        this.userRepository = userRepository;
+        this.userProxy = userProxy;
+    }
+
     @Override
     public User addUser(User user) {
         return null;
