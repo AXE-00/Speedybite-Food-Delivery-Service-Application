@@ -162,6 +162,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Address getAddress(String email) {
-        return null;
+        Optional<User> user = userRepository.findById(email);
+        if (user.isPresent()) {
+            Address address = user.get().getAddress();
+            return address;
+        } else {
+            return null;
+        }
     }
 }
