@@ -5,6 +5,7 @@ import com.niit.bej.user.service.exception.UserNotFoundException;
 import com.niit.bej.user.service.model.Address;
 import com.niit.bej.user.service.model.FavouriteCart;
 import com.niit.bej.user.service.model.User;
+import com.niit.bej.user.service.model.UserDto;
 import com.niit.bej.user.service.proxy.UserProxy;
 import com.niit.bej.user.service.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User addUser(User user) {
-        return null;
+        UserDto userDto = new UserDto();
+
+        userDto.setEmail(user.getEmail());
+        userDto.setPassword(user.getPassword());
+        userDto.setName(user.getName());
+        userDto.setRole(user.getRole());
+        userDto.setPhoneNumber(user.getPhoneNumber());
+        userDto.setImageName(user.getImageName());
+        System.out.println(userDto);
+        userProxy.registerUser(userDto);
+        return userRepository.save(user);
     }
 
     @Override
