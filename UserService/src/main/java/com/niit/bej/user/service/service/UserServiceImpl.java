@@ -11,6 +11,7 @@ import com.niit.bej.user.service.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -41,7 +42,25 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User addFavouritesInList(String email, FavouriteCart favouriteCart) {
-        return null;
+        User user = userRepository.findById(email).get();
+
+        boolean alreadyExists = false;
+        if (user.getFavouriteCartList() != null) {
+            for (FavouriteCart list : user.getFavouriteCartList()) {
+                if (list.getItemName().equals(favouriteCart.getItemName())) {
+                    alreadyExists = true;
+                    break;
+                }
+            }
+        }
+        if (!alreadyExists) {
+            if (user.getFavouriteCartList() == null) {
+                user.setFavouriteCartList(new ArrayList<>());
+            }
+            user.getFavouriteCartList().add(favouriteCart);
+        }
+        userRepository.save(user);
+        return user;
     }
 
     @Override
