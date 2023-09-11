@@ -128,7 +128,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public byte[] getUserProfileImage(String email) {
-        return new byte[0];
+        User user = userRepository.findById(email).get();
+        if (user.getEmail() != null) {
+            return user.getProfileImage();
+        } else {
+            return null;
+        }
     }
 
     @Override
