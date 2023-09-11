@@ -100,7 +100,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void removeFavoriteById(String email, int itemId) throws FavouriteItemNotFoundException {
-
+        if (userRepository.findById(email).isEmpty()) {
+            throw new FavouriteItemNotFoundException("No favourite item found in database!");
+        }
+        User user = userRepository.findById(email).get();
+        List<FavouriteCart> favouriteCartList = user.getFavouriteCartList();
+        for (FavouriteCart list : favouriteCartList) {
+            if (list.getItemId() == itemId) {
+                favouriteCartList.remove(list);
+                System.out.println("Removed successfully");
+                userRepository.save(user);
+                break;
+            }
+        }
     }
 
     @Override
