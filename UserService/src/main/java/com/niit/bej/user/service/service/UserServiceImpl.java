@@ -65,7 +65,27 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User updateUser(String email, User updatedUser) throws UserNotFoundException {
-        return null;
+        if (userRepository.findById(email).isEmpty()) {
+            throw new UserNotFoundException("User not found in database!");
+        }
+        User existingUser = userRepository.findById(email).get();
+        UserDto userDto = new UserDto();
+
+        if (updatedUser.getProfileImage() != null) {
+            existingUser.setProfileImage(updatedUser.getProfileImage());
+        }
+        if (updatedUser.getProfileImage() != null) {
+            existingUser.setName(updatedUser.getName());
+        }
+        if (updatedUser.getPhoneNumber() != 0) {
+            existingUser.setPhoneNumber(updatedUser.getPhoneNumber());
+        }
+        if (updatedUser.getImageName() != null) {
+            existingUser.setImageName(updatedUser.getImageName());
+            userDto.setImageName(updatedUser.getImageName());
+        }
+        userProxy.updateUser(userDto, email);
+        return userRepository.save(existingUser);
     }
 
     @Override
