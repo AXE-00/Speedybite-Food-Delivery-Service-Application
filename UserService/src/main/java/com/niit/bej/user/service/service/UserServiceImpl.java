@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -138,7 +139,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean addAddress(String email, Address address) {
-        return false;
+        Optional<User> userOptional = userRepository.findById(email);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setAddress(address);
+            userRepository.save(user);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
