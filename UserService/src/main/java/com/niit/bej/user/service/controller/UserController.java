@@ -1,6 +1,7 @@
 package com.niit.bej.user.service.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.niit.bej.user.service.exception.FavouriteItemNotFoundException;
 import com.niit.bej.user.service.exception.UserNotFoundException;
 import com.niit.bej.user.service.model.User;
 import com.niit.bej.user.service.service.UserService;
@@ -73,6 +74,12 @@ public class UserController {
         } else {
             return new ResponseEntity<>(userService.getUserName(email), HttpStatus.OK);
         }
+    }
+
+    @GetMapping("/get/user/favourite")
+    public ResponseEntity<?> getUserFavourite(HttpServletRequest request) throws FavouriteItemNotFoundException {
+        String email = (String) request.getAttribute("email");
+        return new ResponseEntity<>(userService.getListOfFavouriteById(email), HttpStatus.OK);
     }
 
 }
