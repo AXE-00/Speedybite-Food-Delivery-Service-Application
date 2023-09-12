@@ -13,11 +13,14 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/userService")
 public class UserController {
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public UserController(UserService userService) {
@@ -47,6 +50,29 @@ public class UserController {
             newUser.setImageName(newFileName);
         }
         return new ResponseEntity<>(userService.updateUser(email, newUser), HttpStatus.OK);
+    }
+
+    @GetMapping("/get/profile")
+    public ResponseEntity<?> getUserImage(HttpServletRequest request) {
+        String email = (String) request.getAttribute("email");
+        byte[] imageData = userService.getUserProfileImage(email);
+        if (imageData == null) {
+            return new ResponseEntity<>("No image found", HttpStatus.NOT_FOUND);
+        }
+        String encodedImage = Base64.getEncoder().encodeToString(imageData);
+        Map<String, Object> response = new HashMap<>();
+        response.put("imageData", encodedImage);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/getName")
+    public ResponseEntity<?> getUserName(HttpServletRequest request) {
+        String email = (String) request.getAttribute("email");
+        if (email.isEmpty()) {
+            return new ResponseEntity<>("Not a valid email", HttpStatus.BAD_REQUEST);
+        } else {
+            return new ResponseEntity<>(userService.getUserName(email), HttpStatus.OK);
+        }
     }
 
 }
