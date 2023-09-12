@@ -3,6 +3,7 @@ package com.niit.bej.user.service.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.niit.bej.user.service.exception.FavouriteItemNotFoundException;
 import com.niit.bej.user.service.exception.UserNotFoundException;
+import com.niit.bej.user.service.model.Address;
 import com.niit.bej.user.service.model.User;
 import com.niit.bej.user.service.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -82,4 +83,28 @@ public class UserController {
         return new ResponseEntity<>(userService.getListOfFavouriteById(email), HttpStatus.OK);
     }
 
+    @DeleteMapping("/remove/favourite")
+    public ResponseEntity<?> removeFavouriteFromList(HttpServletRequest request, @RequestParam int itemId) throws FavouriteItemNotFoundException {
+        String email = (String) request.getAttribute("email");
+        userService.removeFavoriteById(email, itemId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/check/list")
+    public ResponseEntity<?> checkList(HttpServletRequest request, @RequestParam int itemId) {
+        String email = (String) request.getAttribute("email");
+        return new ResponseEntity<>(userService.favouriteItemExists(email, itemId), HttpStatus.OK);
+    }
+
+    @PostMapping("/add/address")
+    public ResponseEntity<?> addAddress(HttpServletRequest request, @RequestBody Address address) {
+        String email = (String) request.getAttribute("email");
+        return new ResponseEntity<>(userService.addAddress(email, address), HttpStatus.OK);
+    }
+
+    @GetMapping("/get/address")
+    public ResponseEntity<?> getAddress(HttpServletRequest request) {
+        String email = (String) request.getAttribute("email");
+        return new ResponseEntity<>(userService.getAddress(email), HttpStatus.OK);
+    }
 }
