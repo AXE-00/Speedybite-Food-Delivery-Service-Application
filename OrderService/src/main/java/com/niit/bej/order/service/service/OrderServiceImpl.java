@@ -17,7 +17,25 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order addOrder(Order order) {
-        return null;
+        Item receivedItem = order.getItems().get(0);
+        List<Order> orders = orderRepository.findByCustomerId(order.getCustomerId());
+        if (orders.isEmpty()) { //If there is no existing order for this customer
+            return orderRepository.save(order); //save a new order
+        } else {
+            Order existingOrder = orders.get(0);
+            boolean itemExists = false;
+            for (Item item : existingOrder.getItems()) {
+                if (item.getItemName().equals(receivedItem.getItemName()) && item.getStatus().equals(receivedItem.getStatus())) {
+                    item.setCount(item.getCount() + 1); //update the count of the existing item
+                    itemExists = true;
+                    break;
+                }
+            }
+            if (!itemExists) { //If the item does not exist in the existing order
+                existingOrder.getItems().add(receivedItem); //add the new item to the existing item
+            }
+            return orderRepository.save(existingOrder); //update the existing order
+        }
     }
 
     @Override
