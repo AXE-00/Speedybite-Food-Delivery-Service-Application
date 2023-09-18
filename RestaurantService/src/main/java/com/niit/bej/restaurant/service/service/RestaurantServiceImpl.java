@@ -5,12 +5,22 @@ import com.niit.bej.restaurant.service.exception.RestaurantAlreadyExistsExceptio
 import com.niit.bej.restaurant.service.exception.RestaurantNotFoundException;
 import com.niit.bej.restaurant.service.model.FoodItems;
 import com.niit.bej.restaurant.service.model.Restaurant;
+import com.niit.bej.restaurant.service.repository.FoodItemRepository;
+import com.niit.bej.restaurant.service.repository.RestaurantRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class RestaurantServiceImpl implements RestaurantService {
+
+    @Autowired
+    private RestaurantRepository restaurantRepository;
+
+    @Autowired
+    private FoodItemRepository foodItemRepository;
+
     @Override
     public Restaurant addRestaurant(Restaurant restaurant) throws RestaurantAlreadyExistsException {
         return null;
