@@ -1,0 +1,4 @@
+package com.niit.bej.restaurant.service.repository;
+
+public interface FoodItemRepository {
+}
