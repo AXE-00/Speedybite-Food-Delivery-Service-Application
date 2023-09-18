@@ -23,7 +23,10 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public Restaurant addRestaurant(Restaurant restaurant) throws RestaurantAlreadyExistsException {
-        return null;
+        if (restaurantRepository.findById(restaurant.getRestaurantId()).isPresent() {
+            throw new RestaurantAlreadyExistsException();
+        }
+        return restaurantRepository.save(restaurant);
     }
 
     @Override
