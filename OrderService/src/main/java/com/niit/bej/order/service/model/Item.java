@@ -10,5 +10,11 @@ import lombok.ToString;
 @Data
 @ToString
 public class Item {
-
+    private int itemId;
+    private String itemName;
+    private int itemPrice;
+    private float itemRating;
+    private String imageUrl;
+    private int count;
+    private String status;
 }
