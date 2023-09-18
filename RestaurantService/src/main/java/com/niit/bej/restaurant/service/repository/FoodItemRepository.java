@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FoodItemRepository {
-    public FoodItems findByItemName(String itemName);
+    FoodItems findByItemName(String itemName);
 }
