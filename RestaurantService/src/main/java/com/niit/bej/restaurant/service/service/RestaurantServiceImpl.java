@@ -69,7 +69,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public boolean deleteById(int restaurantId) throws RestaurantNotFoundException {
-        return false;
+        if (restaurantRepository.findById(restaurantId).isEmpty()) {
+            throw new RestaurantNotFoundException();
+        } else {
+            restaurantRepository.deleteById(restaurantId);
+            return true;
+        }
     }
 
     @Override
@@ -110,9 +115,7 @@ public class RestaurantServiceImpl implements RestaurantService {
         Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(restaurantId);
         if (optionalRestaurant.isPresent()) {
             Restaurant restaurant = optionalRestaurant.get();
-            Optional<FoodItems> optionalFoodItem = restaurant.getItems().stream()
-                    .filter(foodItem -> foodItem.getItemId() == foodItems.getItemId())
-                    .findFirst();
+            Optional<FoodItems> optionalFoodItem = restaurant.getItems().stream().filter(foodItem -> foodItem.getItemId() == foodItems.getItemId()).findFirst();
             if (optionalFoodItem.isPresent()) {
                 FoodItems foodItem = optionalFoodItem.get();
                 restaurant.getItems().remove(foodItem);
