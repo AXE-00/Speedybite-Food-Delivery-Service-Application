@@ -24,7 +24,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public Restaurant addRestaurant(Restaurant restaurant) throws RestaurantAlreadyExistsException {
-        if (restaurantRepository.findById(restaurant.getRestaurantId()).isPresent() {
+        if (restaurantRepository.findById(restaurant.getRestaurantId()).isPresent()) {
             throw new RestaurantAlreadyExistsException();
         }
         return restaurantRepository.save(restaurant);
@@ -106,7 +106,24 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public boolean deleteFoodItem(int restaurantId, FoodItems foodItem) throws RestaurantNotFoundException, FoodItemNotFoundException {
-        return false;
+    public boolean deleteFoodItem(int restaurantId, FoodItems foodItems) throws RestaurantNotFoundException, FoodItemNotFoundException {
+        Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(restaurantId);
+        if (optionalRestaurant.isPresent()) {
+            Restaurant restaurant = optionalRestaurant.get();
+            Optional<FoodItems> optionalFoodItem = restaurant.getItems().stream()
+                    .filter(foodItem -> foodItem.getItemId() == foodItems.getItemId())
+                    .findFirst();
+            if (optionalFoodItem.isPresent()) {
+                FoodItems foodItem = optionalFoodItem.get();
+                restaurant.getItems().remove(foodItem);
+                foodItemRepository.deleteById(foodItem.getItemId());
+                restaurantRepository.save(restaurant);
+                return true;
+            } else {
+                throw new FoodItemNotFoundException();
+            }
+        } else {
+            throw new RestaurantNotFoundException();
+        }
     }
 }
