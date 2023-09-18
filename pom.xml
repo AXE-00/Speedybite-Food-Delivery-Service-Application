@@ -20,6 +20,7 @@
         <module>UserAuth</module>
         <module>UserService</module>
         <module>RestaurantService</module>
+        <module>OrderService</module>
     </modules>
 
     <properties>
