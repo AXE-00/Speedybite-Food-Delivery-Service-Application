@@ -2,10 +2,21 @@ package com.niit.bej.restaurant.service.service;
 
 import com.niit.bej.restaurant.service.exception.RestaurantNotFoundException;
 import com.niit.bej.restaurant.service.model.FoodItems;
+import com.niit.bej.restaurant.service.repository.FoodItemRepository;
+import com.niit.bej.restaurant.service.repository.RestaurantRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class FoodItemServiceImpl implements FoodItemService {
+
+    @Autowired
+    private FoodItemRepository foodItemRepository;
+    @Autowired
+    private RestaurantRepository restaurantRepository;
+
     @Override
     public FoodItems addItems(FoodItems items, int restaurantId) throws RestaurantNotFoundException {
         return null;
