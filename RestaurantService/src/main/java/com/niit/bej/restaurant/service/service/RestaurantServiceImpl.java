@@ -47,7 +47,24 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public Restaurant updateRestaurant(Restaurant restaurant, int restaurantId) throws RestaurantNotFoundException {
-        return null;
+        Optional<Restaurant> checkById = restaurantRepository.findById(restaurantId);
+        if (checkById.isEmpty()) {
+            throw new RestaurantNotFoundException();
+        }
+        Restaurant existingRestaurant = checkById.get();
+        if (restaurant.getRestaurantName() != null) {
+            existingRestaurant.setRestaurantName(restaurant.getRestaurantName());
+        }
+        if (restaurant.getLocation() != null) {
+            existingRestaurant.setLocation(restaurant.getLocation());
+        }
+        if (restaurant.getImageUrl() != null) {
+            existingRestaurant.setImageUrl(restaurant.getImageUrl());
+        }
+        if (restaurant.getRating() != 0) {
+            existingRestaurant.setRating(restaurant.getRating());
+        }
+        return restaurantRepository.save(existingRestaurant);
     }
 
     @Override
@@ -68,7 +85,24 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public Restaurant updateFoodItem(int restaurantId, FoodItems newFoodItem) throws RestaurantNotFoundException, FoodItemNotFoundException {
-        return null;
+        Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(restaurantId);
+        if (optionalRestaurant.isPresent()) {
+            Restaurant restaurant = optionalRestaurant.get();
+            List<FoodItems> items = restaurant.getItems();
+            Optional<FoodItems> optionalFoodItem = items.stream().filter(item -> item.getItemId() == newFoodItem.getItemId()).findFirst();
+            if (optionalFoodItem.isPresent()) {
+                FoodItems existingFoodItem = optionalFoodItem.get();
+                existingFoodItem.setItemName(newFoodItem.getItemName());
+                existingFoodItem.setItemPrice(newFoodItem.getItemPrice());
+                existingFoodItem.setImageUrl(newFoodItem.getImageUrl());
+                existingFoodItem.setItemRating(newFoodItem.getItemRating());
+                return restaurantRepository.save(restaurant);
+            } else {
+                throw new FoodItemNotFoundException();
+            }
+        } else {
+            throw new RestaurantNotFoundException();
+        }
     }
 
     @Override
