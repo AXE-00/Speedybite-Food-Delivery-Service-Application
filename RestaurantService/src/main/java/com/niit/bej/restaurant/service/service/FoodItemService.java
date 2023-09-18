@@ -9,4 +9,9 @@ public interface FoodItemService {
     FoodItems addItems(FoodItems items, int restaurantId) throws RestaurantNotFoundException;
 
     List<FoodItems> getAllItems();
+
+    FoodItems getById(int itemId);
+
+    FoodItems getByName(int itemName);
+
 }
