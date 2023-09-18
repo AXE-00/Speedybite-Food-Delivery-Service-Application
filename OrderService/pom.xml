@@ -4,17 +4,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.3</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>com.niit.bej</groupId>
+        <artifactId>food_delivery_service_application</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.niit.bej</groupId>
     <artifactId>order-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>OrderService</name>
-    <description>OrderService</description>
+    <description>Order microservice to manage orders</description>
 
     <properties>
         <java.version>17</java.version>
