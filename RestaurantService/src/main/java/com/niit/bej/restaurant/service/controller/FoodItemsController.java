@@ -24,4 +24,15 @@ public class FoodItemsController {
         }
     }
 
+    @GetMapping("/getAllItems")
+    public ResponseEntity<?> getAllItems() {
+        return new ResponseEntity<>(foodItemService.getAllItems(), HttpStatus.OK);
+    }
+
+    @GetMapping("/getByName/{itemName}")
+    public ResponseEntity<?> getByName(@PathVariable String itemName) {
+        return new ResponseEntity<>(foodItemService.getByName(itemName), HttpStatus.OK);
+    }
+
+
 }
