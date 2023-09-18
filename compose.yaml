@@ -36,6 +36,15 @@ services:
     depends_on: [ mongo-database-service ]
     restart: always
 
+  restaurant-service:
+    build: /RestaurantService
+    container_name: restaurant-service
+    ports:
+      - "8083:8083"
+    networks: [ speedybite-app-network ]
+    depends_on: [ mongo-database-service ]
+    restart: always
+
 networks:
   speedybite-app-network:
     driver: bridge
