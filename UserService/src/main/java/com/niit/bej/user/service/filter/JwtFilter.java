@@ -23,7 +23,7 @@ public class JwtFilter extends HttpFilter {
             return;
         }
         String jsonWebToken = authorizationHeader.substring("Bearer ".length());
-        Claims claims = Jwts.parser().setSigningKey("U3BlZWR5Qml0ZXNGb29kRGVsaXZlcnlTZXJ2aWNl").parseClaimsJwt(jsonWebToken).getBody();
+        Claims claims = Jwts.parser().setSigningKey("U3BlZWR5Qml0ZXNGb29kRGVsaXZlcnlTZXJ2aWNl").parseClaimsJws(jsonWebToken).getBody();
         request.setAttribute("claims", claims);
         request.setAttribute("issuer", claims.getIssuer());
         request.setAttribute("subject", claims.getSubject());
