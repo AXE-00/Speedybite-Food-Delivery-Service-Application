@@ -12,7 +12,7 @@ public interface FoodItemService {
 
     FoodItems getById(int itemId);
 
-    FoodItems getByName(int itemName);
+    FoodItems getByName(String itemName);
 
     FoodItems updateFoodItem(FoodItems items, int itemId);
 
