@@ -58,9 +58,7 @@ public class OrderServiceImpl implements OrderService {
         List<Order> orders = orderRepository.findByCustomerId(email);
         if (orders != null && !orders.isEmpty()) {
             for (Order order : orders) {
-                Item existingItem = order.getItems().stream()
-                        .filter(item1 -> item1.getItemName().equals(item.getItemName()) && item1.getStatus().equals(item.getStatus()))
-                        .findFirst().orElse(null);
+                Item existingItem = order.getItems().stream().filter(item1 -> item1.getItemName().equals(item.getItemName()) && item1.getStatus().equals(item.getStatus())).findFirst().orElse(null);
                 if (existingItem != null) {
                     int count = existingItem.getCount();
                     if (count > 1) {
@@ -82,9 +80,7 @@ public class OrderServiceImpl implements OrderService {
         List<Order> orders = orderRepository.findByCustomerId(email);
         if (orders != null && !orders.isEmpty()) {
             for (Order order : orders) {
-                Item existingOrder = order.getItems().stream()
-                        .filter(item -> item.getItemName().equals(items.getItemName()) && item.getStatus().equals(item.getStatus()))
-                        .findFirst().orElse(null);
+                Item existingOrder = order.getItems().stream().filter(item -> item.getItemName().equals(items.getItemName()) && item.getStatus().equals(item.getStatus())).findFirst().orElse(null);
                 if (existingOrder != null) {
                     int count = existingOrder.getCount() + 1;
                     existingOrder.setCount(count);
@@ -98,11 +94,43 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public boolean cancelOrder(String email, List<Item> items) {
+        List<Order> orders = orderRepository.findByCustomerId(email);
+        if (!orders.isEmpty()) {
+            for (Order order : orders) {
+                boolean orderUpdated = false;
+                for (Item item : order.getItems()) {
+                    if (item.getStatus().equals("ordered") && items.contains(item)) {
+                        item.setStatus("cancelled");
+                        orderUpdated = true;
+                    }
+                }
+                if (orderUpdated) {
+                    orderRepository.save(order);
+                }
+            }
+            return true;
+        }
         return false;
     }
 
     @Override
     public boolean placeOrder(String email, List<Item> items) {
+        List<Order> orders = orderRepository.findByCustomerId(email);
+        if (!orders.isEmpty()) {
+            for (Order order : orders) {
+                boolean orderUpdated = false;
+                for (Item item : order.getItems()) {
+                    if (item.getStatus().equals("inCart") && items.contains(item)) {
+                        item.setStatus("ordered");
+                        orderUpdated = true;
+                    }
+                }
+                if (orderUpdated) {
+                    orderRepository.save(order);
+                }
+            }
+            return true;
+        }
         return false;
     }
 }
