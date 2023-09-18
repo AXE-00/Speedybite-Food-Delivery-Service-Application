@@ -19,6 +19,7 @@
     <modules>
         <module>UserAuth</module>
         <module>UserService</module>
+        <module>RestaurantService</module>
     </modules>
 
     <properties>
