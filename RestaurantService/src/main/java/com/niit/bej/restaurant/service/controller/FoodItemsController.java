@@ -34,5 +34,21 @@ public class FoodItemsController {
         return new ResponseEntity<>(foodItemService.getByName(itemName), HttpStatus.OK);
     }
 
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> update(HttpServletRequest httpServletRequest, @RequestBody FoodItems foodItems, @PathVariable int id) {
+        if (httpServletRequest.getAttribute("email").equals("ashutosh.k.work@gmail.com")) {
+            return new ResponseEntity<>(foodItemService.updateFoodItem(foodItems, id), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("You are not authorized to update", HttpStatus.UNAUTHORIZED);
+        }
+    }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteById(HttpServletRequest httpServletRequest, @PathVariable int id) {
+        if (httpServletRequest.getAttribute("email").equals("ashutosh.k.work@gmail.com")) {
+            return new ResponseEntity<>(foodItemService.deleteById(id), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("You are not authorized to delete", HttpStatus.UNAUTHORIZED);
+        }
+    }
 }
