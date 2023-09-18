@@ -2,6 +2,8 @@ package com.niit.bej.order.service.service;
 
 import com.niit.bej.order.service.model.Item;
 import com.niit.bej.order.service.model.Order;
+import com.niit.bej.order.service.repository.OrderRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +11,9 @@ import java.util.List;
 @Service
 public class OrderServiceImpl implements OrderService {
 
+
+    @Autowired
+    private OrderRepository orderRepository;
 
     @Override
     public Order addOrder(Order order) {
