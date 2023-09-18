@@ -6,6 +6,7 @@ import com.niit.bej.order.service.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -40,11 +41,39 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Item> getItems(String status, String email) {
-        return null;
+        List<Order> orders = orderRepository.findByCustomerId(email);
+        List<Item> items = new ArrayList<>();
+        for (Order order : orders) {
+            for (Item item : order.getItems()) {
+                if (item.getStatus().equals(status)) {
+                    items.add(item);
+                }
+            }
+        }
+        return items;
     }
 
     @Override
     public boolean removeItem(String email, Item item) {
+        List<Order> orders = orderRepository.findByCustomerId(email);
+        if (orders != null && !orders.isEmpty()) {
+            for (Order order : orders) {
+                Item existingItem = order.getItems().stream()
+                        .filter(item1 -> item1.getItemName().equals(item.getItemName()) && item1.getStatus().equals(item.getStatus()))
+                        .findFirst().orElse(null);
+                if (existingItem != null) {
+                    int count = existingItem.getCount();
+                    if (count > 1) {
+                        count--;
+                        existingItem.setCount(count);
+                    } else if (count == 1) {
+                        order.getItems().remove(existingItem);
+                    }
+                    orderRepository.save(order);
+                }
+            }
+            return true;
+        }
         return false;
     }
 
