@@ -12,7 +12,7 @@ public interface OrderService {
 
     boolean removeItem(String email, Item item);
 
-    boolean addItem(String email, List<Item> items);
+    boolean addItem(String email, Item items);
 
     boolean cancelOrder(String email, List<Item> items);
 

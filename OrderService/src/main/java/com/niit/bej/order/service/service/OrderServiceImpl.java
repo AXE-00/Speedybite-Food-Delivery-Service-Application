@@ -78,7 +78,21 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public boolean addItem(String email, List<Item> items) {
+    public boolean addItem(String email, Item items) {
+        List<Order> orders = orderRepository.findByCustomerId(email);
+        if (orders != null && !orders.isEmpty()) {
+            for (Order order : orders) {
+                Item existingOrder = order.getItems().stream()
+                        .filter(item -> item.getItemName().equals(items.getItemName()) && item.getStatus().equals(item.getStatus()))
+                        .findFirst().orElse(null);
+                if (existingOrder != null) {
+                    int count = existingOrder.getCount() + 1;
+                    existingOrder.setCount(count);
+                }
+                orderRepository.save(order);
+            }
+            return true;
+        }
         return false;
     }
 
