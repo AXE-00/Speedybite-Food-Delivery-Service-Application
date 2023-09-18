@@ -25,5 +25,5 @@ public interface RestaurantService {
 
     Restaurant updateFoodItem(int restaurantId, FoodItems newFoodItem) throws RestaurantNotFoundException, FoodItemNotFoundException;
 
-    boolean deleteFoodItem(int restaurantId, FoodItems foodItem) throws RestaurantNotFoundException, FoodItemNotFoundException;
+    boolean deleteFoodItem(int restaurantId, FoodItems foodItems) throws RestaurantNotFoundException, FoodItemNotFoundException;
 }
