@@ -14,4 +14,7 @@ public interface FoodItemService {
 
     FoodItems getByName(int itemName);
 
+    FoodItems updateFoodItem(FoodItems items, int itemId);
+
+    boolean deleteById(int itemId);
 }
