@@ -1,0 +1,32 @@
+#server.port=8082
+#spring.application.name=user-service
+#spring.data.mongodb.uri=mongodb://localhost:27017/userFoodDB
+#spring.servlet.multipart.max-file-size=10MB
+#spring.servlet.multipart.max-request-size=10MB
+#add eureka server config
+
+server:
+  port: 8082
+  error:
+    include-message: always
+
+spring:
+  application:
+    name: user-service
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql-container:3306/speedybite_user_db?createDatabaseIfNotExist=true
+    username: root
+    password: ashutosh
+
+  data:
+    mongodb:
+      uri: mongodb://mongodb-database-container:27017/userFoodDB
+      port: 27017
+      database: userFoodDB
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
