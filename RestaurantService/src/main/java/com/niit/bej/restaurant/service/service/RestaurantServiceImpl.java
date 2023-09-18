@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RestaurantServiceImpl implements RestaurantService {
@@ -56,7 +57,13 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public List<FoodItems> getItems(int id) throws RestaurantNotFoundException {
-        return null;
+        Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(id);
+        if (optionalRestaurant.isPresent()) {
+            Restaurant restaurant = optionalRestaurant.get();
+            return restaurant.getItems();
+        } else {
+            throw new RestaurantNotFoundException();
+        }
     }
 
     @Override
