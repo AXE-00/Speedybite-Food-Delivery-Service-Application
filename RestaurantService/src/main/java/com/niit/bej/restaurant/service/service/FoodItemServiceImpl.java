@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FoodItemServiceImpl implements FoodItemService {
@@ -43,11 +44,33 @@ public class FoodItemServiceImpl implements FoodItemService {
 
     @Override
     public FoodItems updateFoodItem(FoodItems items, int itemId) {
-        return null;
+        Optional<FoodItems> checkById = foodItemRepository.findById(itemId);
+        if (checkById.isEmpty()) {
+            return null;
+        }
+        FoodItems existingItem = checkById.get();
+        if (items.getItemName() != null) {
+            existingItem.setItemName(items.getItemName());
+        }
+        if (items.getImageUrl() != null) {
+            existingItem.setItemRating(items.getItemRating());
+        }
+        if (items.getItemRating() != 0) {
+            existingItem.setItemRating(items.getItemRating());
+        }
+        if (items.getItemPrice() != 0) {
+            existingItem.setItemPrice(items.getItemPrice());
+        }
+        return foodItemRepository.save(existingItem);
     }
 
     @Override
     public boolean deleteById(int itemId) {
-        return false;
+        if (foodItemRepository.findById(itemId).isEmpty()) {
+            return false;
+        } else {
+            foodItemRepository.deleteById(itemId);
+            return true;
+        }
     }
 }
