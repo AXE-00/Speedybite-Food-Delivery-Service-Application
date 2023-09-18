@@ -2,9 +2,11 @@ package com.niit.bej.restaurant.service.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -17,5 +19,14 @@ public class Restaurant {
     private String imageUrl;
     private String location;
     private double rating;
+    @Getter
     private List<FoodItems> items;
+
+    public Restaurant() {
+        this.items = new ArrayList<>();
+    }
+
+    public void setItems(List<FoodItems> items) {
+        this.items = items;
+    }
 }
