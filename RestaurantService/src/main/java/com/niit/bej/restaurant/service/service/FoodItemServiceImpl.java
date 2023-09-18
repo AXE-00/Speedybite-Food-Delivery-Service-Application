@@ -28,17 +28,17 @@ public class FoodItemServiceImpl implements FoodItemService {
 
     @Override
     public List<FoodItems> getAllItems() {
-        return null;
+        return foodItemRepository.findAll();
     }
 
     @Override
     public FoodItems getById(int itemId) {
-        return null;
+        return foodItemRepository.findById(itemId).get();
     }
 
     @Override
-    public FoodItems getByName(int itemName) {
-        return null;
+    public FoodItems getByName(String itemName) {
+        return foodItemRepository.findByItemName(itemName);
     }
 
     @Override
