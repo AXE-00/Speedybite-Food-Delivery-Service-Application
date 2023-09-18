@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: restaurant-service
+
+  data:
+    mongodb:
+      uri: mongodb://mongodb-database-container:27017/RestaurantDb
+      port: 27017
+      database: RestaurantDb
+
+server:
+  port: 8083
+  error:
+    include-message: always
