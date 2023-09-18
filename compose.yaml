@@ -11,6 +11,13 @@ services:
       MYSQL_ROOT_PASSWORD: ashutosh
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
+  mongo-database-service:
+    image: mongo
+    container_name: mongodb -database-container
+    ports:
+      - "27018:27017"
+    networks: [ speedybite-app-network ]
+
   user-auth-service:
     build: UserAuth/
     container_name: user-auth-service-container
@@ -18,6 +25,15 @@ services:
       - "8081:8081"
     networks: [ speedybite-app-network ]
     depends_on: [ mysql-database-service ]
+    restart: always
+
+  user-service:
+    build: UserService/
+    container_name: user-service
+    ports:
+      - "8082:8082"
+    networks: [ speedybite-app-network ]
+    depends_on: [ mongo-database-service ]
     restart: always
 
 networks:
