@@ -47,4 +47,19 @@ public class RestaurantController {
         }
     }
 
+    @GetMapping("/getItems/{id}")
+    public ResponseEntity<?> getAllFoodItems(@PathVariable int id) throws RestaurantNotFoundException {
+        return new ResponseEntity<>(restaurantService.getItems(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/getRestaurant")
+    public ResponseEntity<?> getAllRestaurants() {
+        return new ResponseEntity<>(restaurantService.getAllRestaurants(), HttpStatus.OK);
+    }
+
+    @GetMapping("/getRating/{location}")
+    public ResponseEntity<?> getRestaurantByLocation(@PathVariable String location) {
+        return new ResponseEntity<>(restaurantService.getRestaurantByLocation(location), HttpStatus.OK);
+    }
+
 }
