@@ -19,7 +19,11 @@ public class FoodItemServiceImpl implements FoodItemService {
 
     @Override
     public FoodItems addItems(FoodItems items, int restaurantId) throws RestaurantNotFoundException {
-        return null;
+        if (restaurantRepository.findById(restaurantId).isPresent()) {
+            return foodItemRepository.save(items);
+        } else {
+            throw new RestaurantNotFoundException();
+        }
     }
 
     @Override
