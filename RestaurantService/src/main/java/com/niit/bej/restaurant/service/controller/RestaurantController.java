@@ -1,5 +1,6 @@
 package com.niit.bej.restaurant.service.controller;
 
+import com.niit.bej.restaurant.service.exception.FoodItemNotFoundException;
 import com.niit.bej.restaurant.service.exception.RestaurantAlreadyExistsException;
 import com.niit.bej.restaurant.service.exception.RestaurantNotFoundException;
 import com.niit.bej.restaurant.service.model.FoodItems;
@@ -60,6 +61,25 @@ public class RestaurantController {
     @GetMapping("/getRating/{location}")
     public ResponseEntity<?> getRestaurantByLocation(@PathVariable String location) {
         return new ResponseEntity<>(restaurantService.getRestaurantByLocation(location), HttpStatus.OK);
+    }
+
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateRestaurant(HttpServletRequest httpServletRequest, @RequestBody Restaurant restaurant, @PathVariable int id) throws RestaurantNotFoundException {
+        if (httpServletRequest.getAttribute("email").equals("ashutosh.k.work@gmail.com")) {
+            return new ResponseEntity<>(restaurantService.updateRestaurant(restaurant, id), HttpStatus.ACCEPTED);
+        } else {
+            return new ResponseEntity<>("You are not authorized to update information", HttpStatus.UNAUTHORIZED);
+        }
+    }
+
+    @PutMapping("/updateItem/{restaurantId}")
+    public ResponseEntity<?> updateFoodItems(HttpServletRequest httpServletRequest, @PathVariable int restaurantId, @RequestBody FoodItems foodItems) throws RestaurantNotFoundException, FoodItemNotFoundException {
+        if (httpServletRequest.getAttribute("email") != null && httpServletRequest.getAttribute("email").equals("ashutosh.k.work@gmail.com")) {
+            return new ResponseEntity<>(restaurantService.updateFoodItem(restaurantId, foodItems), HttpStatus.ACCEPTED);
+        } else {
+            return new ResponseEntity<>("Not authorized to update food items", HttpStatus.UNAUTHORIZED);
+        }
     }
 
 }
