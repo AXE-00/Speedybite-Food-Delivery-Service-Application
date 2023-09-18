@@ -82,4 +82,21 @@ public class RestaurantController {
         }
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteRestaurant(HttpServletRequest httpServletRequest, @PathVariable int id) throws RestaurantNotFoundException {
+        if (httpServletRequest.getAttribute("email").equals("ashutosh.k.work@gmail.com")) {
+            return new ResponseEntity<>(restaurantService.deleteById(id), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("You are not authorized to delete", HttpStatus.UNAUTHORIZED);
+        }
+    }
+
+    @PostMapping("/deleteItem/{id}")
+    public ResponseEntity<?> deleteFoodItem(HttpServletRequest httpServletRequest, @PathVariable int id, @RequestBody FoodItems foodItems) throws RestaurantNotFoundException, FoodItemNotFoundException {
+        if (httpServletRequest.getAttribute("email") != null && httpServletRequest.getAttribute("email").equals("ashutosh.k.work@gmail.com")) {
+            return new ResponseEntity<>(restaurantService.deleteFoodItem(id, foodItems), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("You are not authorized to delete food item", HttpStatus.UNAUTHORIZED);
+        }
+    }
 }
