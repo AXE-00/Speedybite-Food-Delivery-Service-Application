@@ -13,7 +13,7 @@ services:
 
   mongo-database-service:
     image: mongo
-    container_name: mongodb -database-container
+    container_name: mongodb-database-container
     ports:
       - "27018:27017"
     networks: [ speedybite-app-network ]
