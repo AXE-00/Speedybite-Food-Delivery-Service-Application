@@ -47,12 +47,26 @@ public class OrderController {
     }
 
     @PostMapping("/removeItem/{email}")
-    public ResponseEntity removeItem(HttpServletRequest httpServletRequest, @PathVariable String email, @RequestBody Item item) {
+    public ResponseEntity<?> removeItem(HttpServletRequest httpServletRequest, @PathVariable String email, @RequestBody Item item) {
         String attribute = (String) httpServletRequest.getAttribute("email");
         if (email.equals(attribute)) {
-            return new ResponseEntity(orderService.removeItem(email, item), HttpStatus.OK);
-        } else
-            return new ResponseEntity("You Are Not Authorized To Remove", HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(orderService.removeItem(email, item), HttpStatus.OK);
+        } else return new ResponseEntity<>("You Are Not Authorized To Remove", HttpStatus.UNAUTHORIZED);
     }
 
+    @DeleteMapping("/cancelOrder/{email}")
+    public ResponseEntity<?> cancelOrder(HttpServletRequest httpServletRequest, @PathVariable String email, @RequestBody List<Item> items) {
+        if (email.equals(httpServletRequest.getAttribute("email"))) {
+            return new ResponseEntity<>(orderService.cancelOrder(email, items), HttpStatus.OK);
+        }
+        return new ResponseEntity<>("You Are Not Authorized To Cancle", HttpStatus.UNAUTHORIZED);
+    }
+
+    @PostMapping("/placeOrder/{email}")
+    public ResponseEntity<?> placeOrder(HttpServletRequest httpServletRequest, @PathVariable String email, @RequestBody List<Item> items) {
+        if (email.equals(httpServletRequest.getAttribute("email"))) {
+            return new ResponseEntity<>(orderService.placeOrder(email, items), HttpStatus.OK);
+        }
+        return new ResponseEntity<>("You Are Not Authorized To Place The Order", HttpStatus.UNAUTHORIZED);
+    }
 }
