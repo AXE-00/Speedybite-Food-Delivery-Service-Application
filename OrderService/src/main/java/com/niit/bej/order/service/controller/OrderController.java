@@ -37,5 +37,22 @@ public class OrderController {
         }
     }
 
+    @PostMapping("/addItem/{email}")
+    public ResponseEntity<?> addItem(HttpServletRequest httpServletRequest, @PathVariable String email, @RequestBody Item item) {
+        String attribute = (String) httpServletRequest.getAttribute("email");
+        if (email.equals(attribute)) {
+            return new ResponseEntity<>(orderService.addItem(email, item), HttpStatus.CREATED);
+        }
+        return new ResponseEntity<>("You Are Not Authorized To Add", HttpStatus.UNAUTHORIZED);
+    }
+
+    @PostMapping("/removeItem/{email}")
+    public ResponseEntity removeItem(HttpServletRequest httpServletRequest, @PathVariable String email, @RequestBody Item item) {
+        String attribute = (String) httpServletRequest.getAttribute("email");
+        if (email.equals(attribute)) {
+            return new ResponseEntity(orderService.removeItem(email, item), HttpStatus.OK);
+        } else
+            return new ResponseEntity("You Are Not Authorized To Remove", HttpStatus.UNAUTHORIZED);
+    }
 
 }
