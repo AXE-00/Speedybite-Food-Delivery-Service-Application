@@ -15,7 +15,7 @@ public class FoodItemsController {
     @Autowired
     FoodItemService foodItemService;
 
-    @PostMapping("/addNewCuisine/{restaurantId")
+    @PostMapping("/addNewCuisine/{restaurantId}")
     public ResponseEntity<?> addCuisine(HttpServletRequest httpServletRequest, @RequestBody FoodItems foodItems, @PathVariable int restaurantId) throws RestaurantNotFoundException {
         if (httpServletRequest.getAttribute("email").equals("ashutosh.k.work@gmail.com")) {
             return new ResponseEntity<>(foodItemService.addItems(foodItems, restaurantId), HttpStatus.CREATED);
