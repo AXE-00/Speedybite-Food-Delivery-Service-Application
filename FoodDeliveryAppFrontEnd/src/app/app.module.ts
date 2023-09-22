@@ -7,12 +7,14 @@ import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from './app-routing.module';
 import {HeaderComponent} from './components/header/header.component';
 import {HomeComponent} from './components/home/home.component';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
 	  AppComponent,
 	  HeaderComponent,
-	  HomeComponent
+	  HomeComponent,
+	  DashboardComponent
   ],
 	imports: [
 		BrowserModule,
