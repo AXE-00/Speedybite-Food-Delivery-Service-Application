@@ -8,6 +8,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {HeaderComponent} from './components/header/header.component';
 import {HomeComponent} from './components/home/home.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import {DashboardComponent} from './components/dashboard/dashboard.component';
 		BrowserAnimationsModule,
 		RouterOutlet,
 		AppRoutingModule,
+		MatSidenavModule,
+		MatToolbarModule,
 	],
   providers: [],
   bootstrap: [AppComponent]
