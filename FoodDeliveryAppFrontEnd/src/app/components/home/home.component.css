@@ -1,0 +1,112 @@
+#hero-carousel {
+	top: 212px;
+}
+
+.c-item {
+	height: 500px;
+}
+
+.c-img {
+	height: 70%;
+	object-fit: fill;
+	filter: brightness(0.9);
+	transition: all 0.5s ease-out;
+}
+
+/* Infinite Slider CSS*/
+/* Sliding Banner Start */
+.bodyslider {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+@-webkit-keyframes scroll {
+	0% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	100% {
+		-webkit-transform: translateX(calc(-250px * 7));
+		transform: translateX(calc(-250px * 7));
+	}
+}
+
+@keyframes scroll {
+	0% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	100% {
+		-webkit-transform: translateX(calc(-250px * 7));
+		transform: translateX(calc(-250px * 7));
+	}
+}
+
+.slider {
+	margin-top: 0;
+	padding-top: 0;
+	display: flex;
+	height: 150px;
+	width: 1920px;
+	overflow: hidden;
+	position: relative;
+	top: 98px;
+}
+
+.slider::before, .slider::after {
+	content: "";
+	height: 150px;
+	position: absolute;
+	width: 200px;
+	z-index: 2;
+}
+
+.slider::after {
+	right: 0;
+	top: 0;
+	-webkit-transform: rotateZ(180deg);
+	transform: rotateZ(180deg);
+}
+
+.slider::before {
+	left: 0;
+	top: 0;
+}
+
+.slider .slide-track {
+	-moz-animation: scroll 40s linear infinite;
+	-webkit-animation: scroll 40s linear infinite;
+	animation: scroll 30s linear infinite;
+	display: flex;
+	width: calc(250px * 14);
+}
+
+.slider .slide {
+	height: 150px;
+	width: 400px;
+}
+
+/* Sliding Banner End */
+
+.homepageImage {
+	position: relative;
+	left: 100px;
+	top: 131px;
+	animation-name: floating;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+	0% {
+		transform: translate(0, 0px);
+	}
+	50% {
+		transform: translate(0, 25px);
+	}
+	100% {
+		transform: translate(0, -0px);
+	}
+}
