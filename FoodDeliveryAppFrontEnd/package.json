@@ -22,6 +22,8 @@
     "@angular/router": "^16.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+	  "typed-js": "^0.2.3",
+	  "typed.js": "^2.0.16",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
