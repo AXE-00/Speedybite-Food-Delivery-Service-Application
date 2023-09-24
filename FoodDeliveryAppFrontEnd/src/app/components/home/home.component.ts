@@ -11,8 +11,8 @@ export class HomeComponent {
 
 	ngAfterViewInit(): void {
 		const autoTyped = new Typed('.autoType', {
-			strings: ['Tired of Cooking and Delivery Fees?', 'Movie Night? Date Night?', "Don't worry we got you covered!", "Your food is just one click away, Order Now!"],
-			typeSpeed: 100,
+			strings: ['Tired of Cooking and Delivery Fees?', 'Game Night?! Movie Marathon?! Fun Night In?!', "We'll Hook You Up With Amazing Meals!", "Your food is just one click away, Order Now!"],
+			typeSpeed: 60,
 			backSpeed: 10,
 			loop: false,
 		});
