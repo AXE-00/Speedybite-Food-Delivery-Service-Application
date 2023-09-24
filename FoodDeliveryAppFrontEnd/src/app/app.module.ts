@@ -11,6 +11,7 @@ import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {FooterComponent} from './components/footer/footer.component';
+import {AboutUsComponent} from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {FooterComponent} from './components/footer/footer.component';
 	  HeaderComponent,
 	  HomeComponent,
 	  DashboardComponent,
-	  FooterComponent
+	  FooterComponent,
+	  AboutUsComponent
   ],
 	imports: [
 		BrowserModule,
