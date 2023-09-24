@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@700&family=Mukta:wght@200&display=swap');
+
+@font-face {
+	font-family: luxuryFont;
+	src: url(src/assets/fonts/CruellDemo-WyeLv.otf);
+}
+
+@font-face {
+	font-family: cinzel;
+	src: url(src/assets/fonts/Cinzel-Bold.ttf);
+}
+
+body {
+	background-color: white;
+}
+
+h1 {
+	padding: 20px;
+	font-size: 40px;
+	text-align: center;
+	font-family: luxuryFont;
+	font-weight: bolder;
+	color: rgba(8, 8, 79, 0.7);
+}
+
+#logoImage {
+	mix-blend-mode: multiply;
+	position: relative;
+	left: 60px;
+	top: 40px;
+}
+
+.content {
+	width: 50%;
+}
+
+.content p {
+	font-family: mukta;
+	font-weight: 600;
+	font-size: 20px;
+	position: relative;
+	left: 768px;
+	top: -260px;
+	letter-spacing: 1px;
+	text-indent: 30px;
+	line-height: 25px;
+	text-align: justify;
+}
+
+/*.ourVision p, h2{*/
+/*	font-family: cinzel;*/
+/*	font-weight: bold;*/
+/*}*/
+
+.visionContent {
+	width: 95%;
+	height: 350px;
+	margin: auto;
+	background: linear-gradient(to right, rgb(220, 73, 20), rgba(225, 142, 4, 0.91));
+	border-radius: 10px;
+	position: relative;
+	top: -180px;
+}
+
+.visionContent h2 {
+	color: wheat;
+	font-size: 45px;
+	position: relative;
+	left: 810px;
+	font-family: cinzel;
+}
+
+#logo {
+	position: relative;
+	left: 780px;
+}
+
+p i {
+	font-size: 30px;
+	padding-bottom: 20px;
+	color: whitesmoke;
+}
+
+.visionContent p {
+	padding-top: 30px;
+	color: wheat;
+	font-size: 35px;
+	text-align: center;
+	position: relative;
+	left: 14px;
+	font-weight: 500;
+	font-family: mukta;
+}
+
+.ourPartners img {
+	mix-blend-mode: multiply;
+	position: relative;
+	left: 190px;
+	top: -43px;
+}
+
+#cards {
+	cursor: pointer;
+	margin: auto;
+	width: 100%;
+	mix-blend-mode: multiply;
+	height: 600px;
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
+	background: linear-gradient(to right, rgb(247, 225, 29), rgb(255, 196, 0));
+}
+
+#teammate1 {
+	position: relative;
+	left: 487px;
+	top: 4px;
+}
+
+#teammate2 {
+	position: relative;
+	left: 684px;
+}
+
+#name1 {
+	position: relative;
+	left: -280px;
+	top: 14px;
+}
+
+#name2 {
+	position: relative;
+	left: 341px;
+	top: -80px;
+}
+
+.teamMemberImage img:hover {
+	transform: scale(1.05);
+}
+
+.names h1 a {
+	text-decoration: none;
+	color: #534634;
+}
