@@ -10,13 +10,15 @@ import {HomeComponent} from './components/home/home.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {FooterComponent} from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
 	  AppComponent,
 	  HeaderComponent,
 	  HomeComponent,
-	  DashboardComponent
+	  DashboardComponent,
+	  FooterComponent
   ],
 	imports: [
 		BrowserModule,
