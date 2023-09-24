@@ -25,3 +25,37 @@
 	border-color: lightblue;
 }
 
+ul {
+	float: right;
+	list-style: none;
+	margin-top: 15px;
+	margin-right: 0;
+	position: relative;
+}
+
+ul li {
+	display: inline-block;
+	margin: 0 12px;
+}
+
+ul li a {
+	color: black;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+#aboutUs {
+	background-color: white;
+	color: black;
+	padding: 10px 20px;
+	border-radius: 15px;
+	left: 450px;
+	position: relative;
+}
+
+#aboutUs:hover {
+	box-shadow: 5px 5px 10px;
+}
