@@ -13,6 +13,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {FooterComponent} from './components/footer/footer.component';
 import {AboutUsComponent} from './components/about-us/about-us.component';
 import {RegisterComponent} from './components/register/register.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -31,6 +34,10 @@ import {RegisterComponent} from './components/register/register.component';
 		AppRoutingModule,
 		MatSidenavModule,
 		MatToolbarModule,
+		FormsModule,
+		ReactiveFormsModule,
+		MatButtonModule,
+		MatIconModule
 	],
   providers: [],
   bootstrap: [AppComponent]
