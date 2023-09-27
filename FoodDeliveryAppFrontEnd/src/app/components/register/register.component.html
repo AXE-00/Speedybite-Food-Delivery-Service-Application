@@ -1,1 +1,93 @@
-<p>register works!</p>
+<div id="registration">
+	<app-header></app-header>
+	<section>
+		<div id="form">
+			<h2 style="text-align: center; margin-bottom: 40px; font-size: 40px"> SignUp With Us!</h2>
+			<form (ngSubmit)="registerUser()" [formGroup]="registerForm">
+				<!--email-->
+				<div id="emailInput">
+					<span>Email &nbsp;</span>
+					<input formControlName="email" placeholder="ENTER YOU EMAIL ID" type="text">
+					<div *ngIf="email?.errors?.['required'] && email?.dirty" class="error">
+						Email is required
+					</div>
+					<div *ngIf="email?.errors?.['validateEmails']=== false && email?.dirty" class="error">
+						Not a valid email
+					</div>
+				</div>
+				<!--password-->
+				<div id="passwordInput">
+					<span>Password</span>
+					<input formControlName="password" placeholder="ENTER YOUR PASSWORD" type="password">
+					<div *ngIf="password?.errors?.['required'] && password?.dirty" class="error">
+						Password is required
+					</div>
+					<div *ngIf="password?.errors?.['pattern']" class="error">
+						Password should have minimum 8 characters, with at least one special character, one upper and
+						lower case
+						letters and at least one number.
+					</div>
+				</div>
+				<!--confirm Password-->
+				<div id="confirmPasswordInput">
+					<span>Confirm Password</span>
+					<input formControlName="confirmPassword" placeholder="CONFIRM YOUR PASSWORD" type="password">
+					<div *ngIf="registerForm.errors?.['validateEmail']===false" class="error">
+						Password must be same
+					</div>
+				</div>
+				<!--Name-->
+				<div id="nameInput">
+					<span>Name</span>
+					<input formControlName="name" placeholder="ENTER YOUR NAME" type="text">
+					<div *ngIf="name?.errors?.['required'] && name?.dirty" class="error">
+						Name is required
+					</div>
+					<div *ngIf="name?.errors?.['minlength']" class="error">
+						Name must be {{name?.errors?.['minlength'].requiredLength}} characters long
+					</div>
+					<div *ngIf="name?.errors?.['pattern']" class="error">
+						Only characters are allowed, not numbers
+					</div>
+				</div>
+				<!--Contact-->
+				<div id="contactInput">
+					<span>Contact</span>
+					<input formControlName="contactNumber" placeholder="ENTER YOUR CONTACT DETAILS" type="number">
+					<div *ngIf="contact?.errors?.['required'] && contact?.dirty" class="error">
+						Contact number is required
+					</div>
+					<div *ngIf="contact?.errors?.['pattern']" class="error">
+						Contact number should be 10 digits and start with 6, 7, 8, or 9
+					</div>
+				</div>
+				<!-- Image Upload without CSS -->
+				<!--				<div id="userInput">-->
+				<!--					<input (change)="onProfileImageSelect($event)" accept="images/*" type="file">-->
+				<!--				</div>-->
+				<div class="mt-2">
+					<label class="upload">
+						<input (change)="onProfileImageSelect($event)" accept="images/*" class="upload-default"
+							   type="file">
+						<span class="upload-custom">Upload <i aria-hidden="true" class="fa fa-upload"></i></span>
+					</label>
+				</div>
+				<br>
+				<button [disabled]="! registerForm.valid" class="col-5 mt-2" mat-raised-button type="submit">Register
+				</button>
+			</form>
+			<p style="text-align: center;margin-top:2%;color: white;font-size:20px;">Already have an account? <a
+				routerLink="/login" style="color: rgb(220,73,20);">Login</a>
+			</p>
+			<div id="clear">
+				<a routerLink="">
+					<mat-icon>clear</mat-icon>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<div id="images">
+		<img alt="" height="800" id="image1" src="assets/images/register-login/all.png">
+	</div>
+</div>
