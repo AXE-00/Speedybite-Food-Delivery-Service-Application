@@ -62,6 +62,13 @@ services:
     networks: [ speedybite-app-network ]
     restart: always
 
+  api-gateway:
+    build: /APIGateway
+    container_name: api-gateway-container
+    ports:
+      - "9000:9000"
+    networks: [ speedybite-app-network ]
+
 networks:
   speedybite-app-network:
     driver: bridge
