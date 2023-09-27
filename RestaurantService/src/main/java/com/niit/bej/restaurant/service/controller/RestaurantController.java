@@ -28,7 +28,7 @@ public class RestaurantController {
         this.restaurantRepository = restaurantRepository;
     }
 
-    @PostMapping
+    @PostMapping("/addRestaurant")
     public ResponseEntity<?> addNewRestaurant(HttpServletRequest httpServletRequest, @RequestBody Restaurant restaurant) throws RestaurantAlreadyExistsException {
         if (httpServletRequest.getAttribute("email").equals("ashutosh.k.work@gmail.com")) {
             return new ResponseEntity<>(restaurantService.addRestaurant(restaurant), HttpStatus.CREATED);
