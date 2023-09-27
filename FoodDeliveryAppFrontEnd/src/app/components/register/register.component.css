@@ -60,6 +60,7 @@ span {
 .error {
 	margin-bottom: 10px;
 	color: rgb(242, 249, 47);
+	font-size: 20px;
 }
 
 #passwordInput, #confirmPasswordInput, #emailInput, #nameInput {
