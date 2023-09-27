@@ -20,4 +20,9 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
 
-#Add eureka config after creating eureka server
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-server-service:8761/eureka
