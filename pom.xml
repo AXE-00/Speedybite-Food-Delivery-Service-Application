@@ -21,6 +21,7 @@
         <module>UserService</module>
         <module>RestaurantService</module>
         <module>OrderService</module>
+        <module>PaymentService</module>
     </modules>
 
     <properties>
