@@ -24,7 +24,7 @@ services:
     ports:
       - "8081:8081"
     networks: [ speedybite-app-network ]
-    depends_on: [ mysql-database-service ]
+    depends_on: [ mysql-database-service, eureka-server-service ]
     restart: always
 
   user-service:
@@ -33,41 +33,50 @@ services:
     ports:
       - "8082:8082"
     networks: [ speedybite-app-network ]
-    depends_on: [ mongo-database-service ]
+    depends_on: [ mongo-database-service, eureka-server-service ]
     restart: always
 
   restaurant-service:
-    build: /RestaurantService
+    build: RestaurantService/
     container_name: restaurant-service-container
     ports:
       - "8083:8083"
     networks: [ speedybite-app-network ]
-    depends_on: [ mongo-database-service ]
+    depends_on: [ mongo-database-service, eureka-server-service ]
     restart: always
 
   order-service:
-    build: /OrderService
+    build: OrderService/
     container_name: order-service-container
     ports:
       - "8084:8084"
     networks: [ speedybite-app-network ]
-    depends_on: [ mongo-database-service ]
+    depends_on: [ mongo-database-service, eureka-server-service ]
     restart: always
 
   payment-service:
-    build: /PaymentService
+    build: PaymentService/
     container_name: payment-service-container
     ports:
       - "8085:8085"
+    depends_on: [ eureka-server-service ]
     networks: [ speedybite-app-network ]
     restart: always
 
-  api-gateway:
-    build: /APIGateway
+  api-gateway-service:
+    build: APIGateway/
     container_name: api-gateway-container
     ports:
       - "9000:9000"
     networks: [ speedybite-app-network ]
+    depends_on: [ eureka-server-service ]
+
+  eureka-server-service:
+    build: eureka-server/
+    container_name: eureka-server-service-container
+    networks: [ speedybite-app-network ]
+    ports:
+      - "8761:8761"
 
 networks:
   speedybite-app-network:
