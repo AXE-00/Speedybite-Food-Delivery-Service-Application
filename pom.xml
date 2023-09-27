@@ -23,6 +23,7 @@
         <module>OrderService</module>
         <module>PaymentService</module>
         <module>APIGateway</module>
+        <module>EurekaServer</module>
     </modules>
 
     <properties>
