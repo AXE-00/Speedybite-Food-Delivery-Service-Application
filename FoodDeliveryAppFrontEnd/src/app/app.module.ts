@@ -18,6 +18,9 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule} from "@angular/common/http";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatCardModule} from "@angular/material/card";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 		MatButtonModule,
 		MatIconModule,
 		HttpClientModule,
-		MatSnackBarModule
+		MatSnackBarModule,
+		MatFormFieldModule,
+		MatInputModule,
+		MatCardModule,
 	],
   providers: [],
   bootstrap: [AppComponent]
