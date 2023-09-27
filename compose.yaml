@@ -54,6 +54,14 @@ services:
     depends_on: [ mongo-database-service ]
     restart: always
 
+  payment-service:
+    build: /PaymentService
+    container_name: payment-service-container
+    ports:
+      - "8085:8085"
+    networks: [ speedybite-app-network ]
+    restart: always
+
 networks:
   speedybite-app-network:
     driver: bridge
