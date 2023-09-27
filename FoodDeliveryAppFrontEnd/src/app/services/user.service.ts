@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
 export class UserService {
 
 	authorizationUrl: String = "http://localhost:8081/home";
-	userUrl: String = "http://localhost:8081/api/v1/userService"
+	userUrl: String = "http://localhost:8082/api/v1/userService"
 	addressChanged: EventEmitter<boolean> = new EventEmitter();
 	public userInformation: any = {};
 
