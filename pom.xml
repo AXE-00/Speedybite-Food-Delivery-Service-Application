@@ -22,6 +22,7 @@
         <module>RestaurantService</module>
         <module>OrderService</module>
         <module>PaymentService</module>
+        <module>APIGateway</module>
     </modules>
 
     <properties>
