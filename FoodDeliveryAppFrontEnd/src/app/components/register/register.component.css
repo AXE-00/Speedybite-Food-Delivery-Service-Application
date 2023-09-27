@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+#registration {
+	width: 100%;
+	height: 100vh;
+	margin: auto;
+	background-color: rgb(251, 250, 248);
+	background-repeat: no-repeat;
+	background-size: contain;
+	position: relative;
+	background-image: url("src/assets/images/register-login/background.jpeg");
+	left: 50px;
+}
+
+h2 {
+	color: white;
+	font-family: cursive;
+	font-size: 27px;
+	margin-bottom: 25px;
+}
+
+#form {
+	background: linear-gradient(to top, rgba(45, 45, 145, 0.62), rgba(225, 170, 77, 0.56));
+	/*background: linear-gradient(to right, rgba(190, 139, 31, 0.37), rgba(220, 73, 20, 0.8));*/
+	padding: 2%;
+	/*border-radius: 6%;*/
+	margin-top: 2%;
+	box-shadow: 10px 10px 190px -50px;
+	float: right;
+	position: relative;
+	top: 3%;
+	left: -25%;
+	width: 700px;
+	height: 999px;
+	scale: 0.8;
+}
+
+form {
+	width: 500px;
+	margin: auto;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+input {
+	border-radius: 30px;
+	width: 95%;
+	padding: 15px 30px;
+	outline: none;
+	margin-bottom: 6px;
+	font-size: 18px;
+}
+
+span {
+	color: white;
+	font-size: 22px;
+}
+
+.error {
+	margin-bottom: 10px;
+	color: rgb(242, 249, 47);
+}
+
+#passwordInput, #confirmPasswordInput, #emailInput, #nameInput {
+	margin-bottom: 30px;
+}
+
+#userInput {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/*CSS for File Upload */
+
+.upload {
+	position: relative;
+}
+
+.upload-default {
+	display: none;
+}
+
+.upload-custom {
+	width: 150px;
+	height: 50px;
+	border-radius: 10px;
+	background-color: rgba(220, 73, 20, 0.8);
+	color: #fff;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.upload-custom:hover {
+	color: #333;
+}
+
+.upload-custom:hover .fa {
+	animation: anim alternate infinite .3s;
+}
+
+@keyframes anim {
+	to {
+		transform: translateY(0%);
+	}
+
+	from {
+		transform: translateY(20%);
+	}
+}
+
+/*CSS for File Upload */
+
+button {
+	margin-top: -50px;
+	font-size: 30px;
+	border-radius: 50px;
+}
+
+#clear {
+	background-color: rgb(255, 0, 132);
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	text-align: center;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+#clear:hover {
+	background-color: rgb(155, 2, 68);
+}
+
+#clear a {
+	line-height: 65px;
+	color: white;
+	padding: 10px;
+}
+
+#image1 {
+	position: relative;
+	left: 430px;
+	top: 137px;
+}
+
+#backgroundImage {
+	width: 100%;
+	height: 100vh;
+	top: -1040px;
+}
