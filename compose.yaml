@@ -72,7 +72,7 @@ services:
     depends_on: [ eureka-server-service ]
 
   eureka-server-service:
-    build: eureka-server/
+    build: EurekaServer/
     container_name: eureka-server-service-container
     networks: [ speedybite-app-network ]
     ports:
