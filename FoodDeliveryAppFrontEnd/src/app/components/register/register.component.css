@@ -6,10 +6,9 @@
 	margin: auto;
 	background-color: rgb(251, 250, 248);
 	background-repeat: no-repeat;
-	background-size: contain;
 	position: relative;
 	background-image: url("src/assets/images/register-login/background.jpeg");
-	left: 50px;
+	background-size: cover;
 }
 
 h2 {
