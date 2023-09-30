@@ -49,4 +49,21 @@ export class SpeedybiteService {
 		return this.httpClient.post<Order>(url, order, requestOptions)
 	}
 
+	public cancelOrder(items: Item[], email: string | null) {
+		let httpHeader = new HttpHeaders({
+			'Authorization': 'Bearer ' + localStorage.getItem('Token')
+		})
+		let requestOptions = {headers: httpHeader}
+		const url = `${this.orderServiceUrl}cancelOrder/${email}`
+		return this.httpClient.delete<Item[]>(url, requestOptions)
+	}
+
+	public placeOrder(items: Item[], email: string | null) {
+		let httpHeader = new HttpHeaders({
+			'Authorization': 'Bearer ' + localStorage.getItem('Token')
+		})
+		let requestOptions = {headers: httpHeader}
+		const url = `${this.orderServiceUrl}placeOrder/${email}`
+		return this.httpClient.post<Item[]>(url, requestOptions)
+	}
 }
