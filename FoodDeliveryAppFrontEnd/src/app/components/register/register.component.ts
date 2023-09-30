@@ -4,6 +4,7 @@ import {UserService} from "../../services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {LoginService} from "../../services/login.service";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
 	selector: 'app-register', templateUrl: './register.component.html', styleUrls: ['./register.component.css']
@@ -19,7 +20,12 @@ export class RegisterComponent {
 		contactNumber: ["", [Validators.required, Validators.pattern('^[6-9]\\d{9}$')]]
 	}, {validators: [this.validatePasswordMatch]})
 
-	constructor(private formBuilder: FormBuilder, private userService: UserService, private snackBar: MatSnackBar, private loginStatus: LoginService, private router: Router) {
+	constructor(private formBuilder: FormBuilder,
+				private userService: UserService,
+				private snackBar: MatSnackBar,
+				private loginStatus: LoginService,
+				private router: Router,
+				private toaster: ToastrService) {
 	}
 
 	get email() {
@@ -82,23 +88,19 @@ export class RegisterComponent {
 
 		const formData = new FormData();
 
-		formData.append('user', JSON.stringify(userData));
+		formData.append('userData', JSON.stringify(userData));
 
-		formData.append('profileImage', this.profileImage);
+		formData.append('file', this.profileImage);
 
 		this.userService.registerUser(formData).subscribe({
 
 			next: data => {
 				const userName: string = String(this.name?.value);
 				localStorage.setItem('name', userName);
-
-				const message = `Welcome ${userName}, thank you for signing up with SpeedyBite`;
-
-				const email = JSON.stringify(this.registerForm.value.email);
+				this.toaster.success(`Welcome ${userName}, thank you for signing up with SpeedyBite`)
 
 				this.snackBar.open('SignedUp successfully✔️', 'OK', {
 					duration: 3000, panelClass: ['mat-toolbar', 'blue']
-
 				});
 				this.loginStatus.loginSuccess();
 				this.router.navigateByUrl("/login")
