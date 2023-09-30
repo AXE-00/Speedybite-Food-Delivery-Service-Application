@@ -33,11 +33,11 @@ public class UserServiceImpl implements UserService {
         userDto.setEmail(user.getEmail());
         userDto.setPassword(user.getPassword());
         userDto.setName(user.getName());
-        userDto.setRole(user.getRole());
         userDto.setPhoneNumber(user.getPhoneNumber());
         userDto.setImageName(user.getImageName());
+        userDto.setRole(user.getRole());
         System.out.println(userDto);
-        userProxy.registerUser(userDto);
+        userProxy.registerNewUser(userDto);
         return userRepository.save(user);
     }
 

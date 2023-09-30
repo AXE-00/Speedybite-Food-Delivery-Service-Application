@@ -4,6 +4,7 @@ import com.niit.bej.user.auth.exception.InvalidCredentialsException;
 import com.niit.bej.user.auth.exception.UserAlreadyExistsException;
 import com.niit.bej.user.auth.exception.UserNotFoundException;
 import com.niit.bej.user.auth.model.User;
+import com.niit.bej.user.auth.model.UserDto;
 import com.niit.bej.user.auth.repository.UserRepository;
 import com.niit.bej.user.auth.service.UserService;
 import com.niit.bej.user.auth.service.security.SecurityTokenGenerator;
@@ -33,13 +34,15 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerNewUser(@RequestBody User user) {
-        try {
-            User registeredUser = this.userService.registerUser(user);
-            return new ResponseEntity<>(registeredUser, HttpStatus.CREATED);
-        } catch (UserAlreadyExistsException exception) {
-            return new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
-        }
+    public ResponseEntity<?> registerNewUser(@RequestBody UserDto userDto) throws UserAlreadyExistsException {
+        User user = new User(
+                userDto.getEmail(),
+                userDto.getPassword(),
+                userDto.getName(),
+                userDto.getPhoneNumber(),
+                userDto.getImageName(),
+                userDto.getRole());
+        return new ResponseEntity<>(userService.registerUser(user), HttpStatus.CREATED);
     }
 
     @PostMapping("/login")
