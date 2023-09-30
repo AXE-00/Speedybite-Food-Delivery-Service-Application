@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Item} from "../models/item.model";
 import {Order} from "../models/order.model";
+import {PaymentOrder} from "../models/payment-order.model";
 
 @Injectable({
 	providedIn: 'root'
@@ -65,5 +66,10 @@ export class SpeedybiteService {
 		let requestOptions = {headers: httpHeader}
 		const url = `${this.orderServiceUrl}placeOrder/${email}`
 		return this.httpClient.post<Item[]>(url, requestOptions)
+	}
+
+	public createPaymentOrder(data: PaymentOrder) {
+		const url = `${this.paymentServiceUrl}createOrder`
+		return this.httpClient.post<PaymentOrder>(url, data);
 	}
 }
