@@ -22,6 +22,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {ToastrModule} from "ngx-toastr";
+import {LoginComponent} from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {ToastrModule} from "ngx-toastr";
 	  DashboardComponent,
 	  FooterComponent,
 	  AboutUsComponent,
-	  RegisterComponent
+	  RegisterComponent,
+	  LoginComponent
   ],
 	imports: [
 		BrowserModule,
