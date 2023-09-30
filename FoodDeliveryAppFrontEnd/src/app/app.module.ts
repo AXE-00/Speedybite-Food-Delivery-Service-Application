@@ -21,6 +21,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {MatInputModule} from "@angular/material/input";
 		MatFormFieldModule,
 		MatInputModule,
 		MatCardModule,
+		ToastrModule.forRoot(),
 	],
   providers: [],
   bootstrap: [AppComponent]
