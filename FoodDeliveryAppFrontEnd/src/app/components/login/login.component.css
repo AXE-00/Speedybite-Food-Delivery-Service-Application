@@ -1,0 +1,172 @@
+section #imageBox img {
+	/*width: 100%;*/
+	/*height: 100vh;*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+input {
+	border-radius: 30px;
+	width: 90%;
+	padding: 15px 20px;
+	outline: none;
+	margin-bottom: 10px;
+}
+
+#emailInput {
+	margin-bottom: 20px;
+}
+
+.error {
+	color: red;
+}
+
+form {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+section {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+}
+
+section #imageBox {
+	position: relative;
+	width: 50%;
+	height: 100%;
+}
+
+
+section #loginForm {
+	margin: auto;
+	width: 50%;
+	height: 100vh;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+
+form span {
+	display: inline-block;
+	letter-spacing: 2px;
+	font-weight: 400;
+	color: white;
+	margin-bottom: 5px;
+}
+
+#formBox {
+	background: linear-gradient(to top, rgba(45, 45, 145, 0.62), rgba(225, 170, 77, 0.56));
+	padding: 4%;
+	border-radius: 6%;
+	box-shadow: 10px 10px 190px -50px;
+	margin: 10px;
+	width: 50%;
+}
+
+#loginForm h2 {
+	text-align: center;
+	font-weight: 600;
+	color: white;
+	margin-bottom: 40px;
+	font-family: cursive;
+	font-size: 25px;
+}
+
+p {
+	font-size: 15px;
+	color: #082e8f;
+}
+
+p a {
+	font-weight: 600;
+	color: #b23000;
+	margin-left: 5px;
+}
+
+#toggle {
+	margin-left: -50px;
+	color: black;
+	cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+	section #loginForm {
+		width: 40%;
+	}
+
+	#formBox {
+		width: 80%;
+	}
+}
+
+@media (max-width: 776px) {
+
+	section #imageBox {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	section #loginForm {
+
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		display: flex;
+		z-index: 1;
+	}
+
+	#formBox {
+		width: 50%;
+		background: rgba(248, 26, 96, 0.932);
+	}
+
+	.error {
+		color: white;
+	}
+
+}
+
+@media (max-width: 546px) {
+	section #loginForm {
+
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		display: flex;
+		z-index: 1;
+	}
+
+	#formBox {
+		width: 72%;
+		background: rgba(248, 26, 96, 0.932);
+	}
+}
+
+@media (max-width: 427px) {
+	input {
+		width: 100%;
+	}
+
+	#formBox {
+		width: 80%;
+	}
+
+	form {
+		width: 70%;
+	}
+}
