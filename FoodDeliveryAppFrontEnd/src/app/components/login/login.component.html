@@ -1,1 +1,45 @@
-<p>login works!</p>
+<app-header></app-header>
+<div class="loginPage">
+	<section>
+		<div id="imageBox">
+			<img alt="login image" src="assets/images/register-login/login-image.png" style="left: 66px; top: -2px;">
+		</div>
+		<div id="loginForm">
+			<div id="formBox">
+				<h2>Login</h2>
+				<form (ngSubmit)="loginUser()" [formGroup]="loginForm">
+					<div id="emailInput">
+						<span>Email</span>
+						<input formControlName="email"
+							   placeholder="Enter your Email Id"
+							   type="text">
+						<div *ngIf="email?.errors?.['required'] && email?.dirty" class="error">
+							Email is required
+						</div>
+						<div *ngIf="email?.errors?.['validateEmails'] === false && email?.dirty" class="error">
+							Not a valid email
+						</div>
+					</div>
+
+					<div id="passwordInput">
+						<span>Password</span>
+						<input formControlName="password"
+							   id="password"
+							   placeholder="Enter Your Password"
+							   type="password">
+						<span><i (click)="showHidePassword()" class="fa fa-eye" id="toggle"></i></span>
+						<div *ngIf="password?.errors?.['required'] && password?.dirty" class="error">
+							Password is required*
+						</div>
+						<div *ngIf="password?.errors?.['minlength']" class="error">
+							Password must be {{password?.errors?.['minlength'].requiredLength}} characters long
+						</div>
+					</div>
+					<br>
+					<button [disabled]="!loginForm.valid" mat-raised-button type="submit">LogIn</button>
+				</form>
+				<p>Don't have an account yet? <a routerLink="/register">SignUp</a></p>
+			</div>
+		</div>
+	</section>
+</div>
