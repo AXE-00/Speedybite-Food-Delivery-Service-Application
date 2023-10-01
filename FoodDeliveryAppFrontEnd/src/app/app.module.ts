@@ -23,6 +23,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {ToastrModule} from "ngx-toastr";
 import {LoginComponent} from './components/login/login.component';
+import {RestaurantViewComponent} from './components/restaurant-view/restaurant-view.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {LoginComponent} from './components/login/login.component';
 	  FooterComponent,
 	  AboutUsComponent,
 	  RegisterComponent,
-	  LoginComponent
+	  LoginComponent,
+	  RestaurantViewComponent
   ],
 	imports: [
 		BrowserModule,
