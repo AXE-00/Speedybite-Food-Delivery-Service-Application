@@ -1,1 +1,56 @@
-<p>restaurant-view works!</p>
+<div id="image">
+	<h1 style="text-align: center;">Available Restaurants!</h1>
+	<div style="float: right;margin-top: -20px;"></div>
+
+	<div *ngIf="present == false" class="cardContainer">
+		<div *ngIf="isLoading" class="loading"></div>
+		<div (click)="getItems(restaurants.restaurantId)" *ngFor="let restaurant of restaurants" class="card">
+			<img alt="" src="{{restaurant.imageUrl}}">
+			<span>{{restaurant.restaurantName}}</span>
+			<p>Location: {{restaurant.location}}</p>
+
+			<div class="rating-badge">
+				Rating: {{restaurant.rating}}
+				<i class="fa fa-star"></i>
+			</div>
+		</div>
+	</div>
+
+	<!--For restaurants-->
+	<div *ngIf="present == true" class="cardContainer">
+		<div *ngIf="isLoading" class="loading"></div>
+		<div (click)="getItems(restaurant.restaurantId)" *ngFor="let restaurant of searchedRestaurants" class="card">
+			<img alt="" src="{{restaurant.imageUrl}}">
+			<span>{{restaurant.restaurantName}}</span>
+			<p>Location: {{restaurant.location}}</p>
+
+			<div class="rating-badge">
+				Rating: {{restaurant.rating}}
+				<i class="fa fa-star"></i>
+			</div>
+		</div>
+	</div>
+
+	<!--For Items-->
+	<div *ngIf="present == true">
+		<h1 style="text-align: center;">Available Items</h1>
+		<div class="cardContainer">
+			<div *ngIf="isLoading" class="loading">
+				<div *ngFor="let item of searchedItems" class="card2">
+					<img alt="{{item.itemName}}" src="{{item.imageUrl}}">
+					<span>{{item.itemName}}</span>
+					<p style="margin-left: 10px;">Price: <i class="fa fa-rupee"></i> {{item.itemPrice}}</p>
+
+					<div class="rating-badge" style="margin-right:-30px;margin-top:26px;">
+						Rating: {{item.itemRating}}
+						<i class="fa fa-star"></i>
+					</div>
+					<div class="addToCart">
+						<button (click)="addToCart(item)" color="primary" mat-raised-button>Add to Cart</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
