@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "USER-AUTH-SERVICE", url = "http://localhost:8081")
+@FeignClient(name = "USER-AUTH-SERVICE")
 public interface UserProxy {
     @PostMapping("api/v1/auth/register")
     public ResponseEntity<?> registerNewUser(@RequestBody UserDto userDto);
