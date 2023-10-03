@@ -24,6 +24,7 @@ import {MatInputModule} from "@angular/material/input";
 import {ToastrModule} from "ngx-toastr";
 import {LoginComponent} from './components/login/login.component';
 import {RestaurantViewComponent} from './components/restaurant-view/restaurant-view.component';
+import {AddRestaurantComponent} from './components/add-restaurant/add-restaurant.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {RestaurantViewComponent} from './components/restaurant-view/restaurant-v
 	  AboutUsComponent,
 	  RegisterComponent,
 	  LoginComponent,
-	  RestaurantViewComponent
+	  RestaurantViewComponent,
+	  AddRestaurantComponent
   ],
 	imports: [
 		BrowserModule,
