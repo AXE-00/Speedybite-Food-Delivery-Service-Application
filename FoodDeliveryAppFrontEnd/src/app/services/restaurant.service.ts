@@ -46,4 +46,27 @@ export class RestaurantService {
 		return this.httpClient.post(`${this.apiBaseUrl}/addRestaurant`, addRestaurant, requestOption);
 	}
 
+	updateRestaurant(updateRestaurant: any, id: any) {
+		let httpHeader = new HttpHeaders({
+			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+		})
+		let requestOption = {headers: httpHeader}
+		return this.httpClient.delete(`${this.apiBaseUrl}/delete/${id}`, requestOption)
+	}
+
+	deleteRestaurant(id: number) {
+		let httpHeader = new HttpHeaders({
+			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+		})
+		let requestOption = {headers: httpHeader}
+		return this.httpClient.post(`${this.apiBaseUrl}/addItem/${id}`, requestOption);
+	}
+
+	addItem(addItem: any, id: number) {
+		let httpHeader = new HttpHeaders({
+			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+		})
+		let requestOption = {headers: httpHeader}
+		return this.httpClient.post(`${this.apiBaseUrl}/addItem/${id}`, addItem, requestOption)
+	}
 }
