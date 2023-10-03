@@ -1,1 +1,37 @@
-<p>add-restaurant works!</p>
+<section>
+	<div id="addRestaurantForm">
+		<div id="formBox">
+			<h2 style="color: whitesmoke;">Add new restaurant</h2>
+
+			<form [formGroup]="restaurantForm">
+				<mat-form-field appearance="fill"><input formControlName="restaurantId" matInput name="restaurantId"
+														 placeholder="Enter Restaurant Id"
+														 required type="text"
+				></mat-form-field>
+				<br>
+				<mat-form-field appearance="fill"><input formControlName="location" matInput name="location"
+														 placeholder="Enter location " required
+														 type="text"></mat-form-field>
+				<br>
+				<mat-form-field appearance="fill"><input formControlName="imageUrl" matInput name="imageUrl"
+														 placeholder="ImageUrl of the restaurant"
+														 required type="text"></mat-form-field>
+				<br>
+				<mat-form-field appearance="fill"><input formControlName="restaurantName" matInput name="restaurantName"
+														 placeholder="Enter Restaurant Name"
+														 required type="text"></mat-form-field>
+				<br>
+				<mat-form-field appearance="fill"><input formControlName="rating" matInput name="rating"
+														 placeholder="Rating"
+														 required type="number"></mat-form-field>
+				<br>
+				<button (click)="addRestaurant()" [disabled]="!restaurantForm.valid" color="accent" mat-raised-button
+						type="submit">Add
+					Restaurant
+				</button>
+				<br><br>
+				<button (click)="update()" color="accent" mat-raised-button>Update Restaurant</button>
+			</form>
+		</div>
+	</div>
+</section>
