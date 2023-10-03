@@ -1,6 +1,7 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Favourites} from "../models/favourites.model";
 
 @Injectable({
 	providedIn: 'root'
@@ -34,5 +35,36 @@ export class UserService {
 		return this.httpClient.put(`${this.userUrl}/update/user`, formData, requestOption)
 	}
 
+	getProfileImage() {
+		let httpHeader = new HttpHeaders({
+			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+		})
+		let requestOption = {headers: httpHeader}
+		return this.httpClient.get(`${this.userUrl}/get/profile`, requestOption)
+	}
+
+	getUserDetails() {
+		let httpHeader = new HttpHeaders({
+			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+		})
+		let requestOption = {headers: httpHeader}
+		return this.httpClient.get(`${this.userUrl}/getName`, requestOption)
+	}
+
+	addItemToFavourites(itemData: any) {
+		let httpHeader = new HttpHeaders({
+			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+		})
+		let requestOption = {headers: httpHeader}
+		return this.httpClient.post(`${this.userUrl}/add/item`, itemData, requestOption)
+	}
+
+	getListOfFavourites(): Observable<Array<Favourites>> {
+		let httpHeader = new HttpHeaders({
+			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+		})
+		let requestOption = {headers: httpHeader}
+		return this.httpClient.get<Array<Favourites>>(`${this.userUrl}/get/user/favourite`, requestOption)
+	}
 }
 
