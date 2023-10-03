@@ -1,13 +1,19 @@
-import {Component} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import Typed from 'typed.js';
+import {RestaurantService} from "../../services/restaurant.service";
+import {LoginService} from "../../services/login.service";
 
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
 	styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 	present: boolean = true;
+	@Input('restaurants') restaurants: any[] = [];
+
+	constructor(private restaurantService: RestaurantService, private loginService: LoginService) {
+	}
 
 	ngAfterViewInit(): void {
 		const autoTyped = new Typed('.autoType', {
@@ -17,4 +23,13 @@ export class HomeComponent {
 			loop: false,
 		});
 	}
+
+	ngOnInit(): void {
+		this.loginService.findCardCount();
+		this.loginService.homePresent.subscribe(data => {
+			this.present = data;
+			console.log(data)
+		})
+	}
+
 }
