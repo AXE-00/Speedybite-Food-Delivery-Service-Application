@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@700&display=swap');
+
+a:hover {
+	color: #125699;
+}
+
+.rating-badge {
+	color: #24292e;
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+	padding: 3px 10px;
+	margin-left: 200px;
+	font-weight: 800;
+	margin-top: -20px;
+}
+
+.rating-badge .material-icons {
+	height: 16px;
+	width: 16px;
+	margin-right: 4px;
+	color: gold;
+}
+
+h1 {
+	color: black;
+	padding-top: 15px;
+	font-family: Goldman;
+	font-weight: bold;
+}
+
+#image {
+	width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.loading {
+	width: 25vh;
+	height: 30vh;
+	margin-top: auto;
+	background: url("src/assets/images/time-loading-gif.gif") no-repeat;
+}
+
+.cardContainer {
+	width: 95%;
+	height: auto;
+	margin-top: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.card {
+	width: 270px;
+	height: 310px;
+	margin: 10px;
+	border-radius: 6px;
+	text-align: center;
+	position: relative;
+	transition: ease 0.6s;
+	cursor: pointer;
+}
+
+.card:hover {
+	scale: 1.02;
+}
+
+.card2 {
+	width: 270px;
+	border: 1px solid rgb(162, 160, 160);
+	height: 330px;
+	margin: 10px;
+	border-radius: 6px;
+	text-align: center;
+	position: relative;
+	transition: ease 0.6s;
+	cursor: pointer;
+}
+
+.card2:hover {
+	scale: 1.02;
+}
+
+img {
+	padding: 5px;
+	width: 270px;
+	height: 200px;
+	border-radius: 6px;
+}
+
+span {
+	font-size: 15px;
+	font-weight: 600;
+}
+
+#itemName {
+	margin-top: -15px;
+}
+
+p {
+	position: absolute;
+	top: 250px;
+	left: 10px;
+	font-weight: 600;
+}
+
+.addToCart {
+	position: absolute;
+	left: 30%;
+	bottom: 12px;
+}
+
+.rating-badge {
+	color: black;
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+	padding: 3px 10px;
+	margin-left: 167px;
+	font-weight: 800;
+	margin-top: 25px;
+}
+
+.github-star-badge i {
+	color: gold;
+}
