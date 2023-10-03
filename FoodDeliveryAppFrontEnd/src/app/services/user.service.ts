@@ -2,6 +2,7 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Favourites} from "../models/favourites.model";
+import {Address} from "../models/address.model";
 
 @Injectable({
 	providedIn: 'root'
@@ -65,6 +66,38 @@ export class UserService {
 		})
 		let requestOption = {headers: httpHeader}
 		return this.httpClient.get<Array<Favourites>>(`${this.userUrl}/get/user/favourite`, requestOption)
+	}
+
+	removeFavourites(itemRemoved: any) {
+		let httpHeader = new HttpHeaders({
+			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+		})
+		let requestOption = {headers: httpHeader}
+		return this.httpClient.delete(`${this.userUrl}/remove/favourite?itemId=${itemRemoved}`, requestOption)
+	}
+
+	checkList(itemId: number): Observable<boolean> {
+		let httpHeader = new HttpHeaders({
+			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+		})
+		let requestOption = {headers: httpHeader}
+		return this.httpClient.get<boolean>(`${this.userUrl}/check/list?itemId=${itemId}`, requestOption)
+	}
+
+	changeAddress(address: Address) {
+		let httpHeader = new HttpHeaders({
+			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+		})
+		let requestOption = {headers: httpHeader}
+		return this.httpClient.post(`${this.userUrl}/add/address`, address, requestOption)
+	}
+
+	getAddress(): Observable<Address | any> {
+		let httpHeader = new HttpHeaders({
+			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+		})
+		let requestOption = {headers: httpHeader}
+		return this.httpClient.get(`${this.userUrl}/get/address`, requestOption)
 	}
 }
 
