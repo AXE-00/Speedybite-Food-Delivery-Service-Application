@@ -25,6 +25,7 @@ import {ToastrModule} from "ngx-toastr";
 import {LoginComponent} from './components/login/login.component';
 import {RestaurantViewComponent} from './components/restaurant-view/restaurant-view.component';
 import {AddRestaurantComponent} from './components/add-restaurant/add-restaurant.component';
+import {AddItemsComponent} from './components/add-items/add-items.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {AddRestaurantComponent} from './components/add-restaurant/add-restaurant
 	  RegisterComponent,
 	  LoginComponent,
 	  RestaurantViewComponent,
-	  AddRestaurantComponent
+	  AddRestaurantComponent,
+	  AddItemsComponent
   ],
 	imports: [
 		BrowserModule,
