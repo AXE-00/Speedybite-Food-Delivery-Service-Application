@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../services/user.service";
-import {MatSnackBar} from "@angular/material/snack-bar";
 import {LoginService} from "../../services/login.service";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
@@ -22,7 +21,6 @@ export class RegisterComponent {
 
 	constructor(private formBuilder: FormBuilder,
 				private userService: UserService,
-				private snackBar: MatSnackBar,
 				private loginStatus: LoginService,
 				private router: Router,
 				private toaster: ToastrService) {
@@ -97,11 +95,8 @@ export class RegisterComponent {
 			next: data => {
 				const userName: string = String(this.name?.value);
 				localStorage.setItem('name', userName);
-				this.toaster.success(`Welcome ${userName}, thank you for signing up with SpeedyBite`)
+				this.toaster.success(`Welcome ${userName}, Thank you for signing up with SpeedyBite`)
 
-				this.snackBar.open('SignedUp successfully✔️', 'OK', {
-					duration: 3000, panelClass: ['mat-toolbar', 'blue']
-				});
 				this.loginStatus.loginSuccess();
 				this.router.navigateByUrl("/login")
 			}

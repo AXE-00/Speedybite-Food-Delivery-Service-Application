@@ -25,7 +25,7 @@ export class SpeedybiteService {
 
 	public addItem(email: string | null, item: Item): Observable<any> {
 		let httpHeader: HttpHeaders = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem('Token')
+			'Authorization': 'Bearer ' + localStorage.getItem('token')
 		})
 		let requestOptions = {headers: httpHeader}
 		const url = `${this.orderServiceUrl}addItem/${email}`;
@@ -34,7 +34,7 @@ export class SpeedybiteService {
 
 	public removeItem(email: string | null, item: Item): Observable<any> {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem('Token')
+			'Authorization': 'Bearer ' + localStorage.getItem('token')
 		})
 		let requestOptions = {headers: httpHeader}
 		const url = `${this.orderServiceUrl}removeItem/${email}`;
@@ -43,7 +43,7 @@ export class SpeedybiteService {
 
 	public insertOrder(order: Order): Observable<any> {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem('Token')
+			'Authorization': 'Bearer ' + localStorage.getItem('token')
 		})
 		let requestOptions = {headers: httpHeader}
 		const url = `${this.orderServiceUrl}insertOrder`
@@ -52,7 +52,7 @@ export class SpeedybiteService {
 
 	public cancelOrder(items: Item[], email: string | null) {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem('Token')
+			'Authorization': 'Bearer ' + localStorage.getItem('token')
 		})
 		let requestOptions = {headers: httpHeader}
 		const url = `${this.orderServiceUrl}cancelOrder/${email}`
@@ -61,7 +61,7 @@ export class SpeedybiteService {
 
 	public placeOrder(items: Item[], email: string | null) {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem('Token')
+			'Authorization': 'Bearer ' + localStorage.getItem('token')
 		})
 		let requestOptions = {headers: httpHeader}
 		const url = `${this.orderServiceUrl}placeOrder/${email}`

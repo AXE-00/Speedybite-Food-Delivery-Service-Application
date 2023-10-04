@@ -28,7 +28,7 @@ export class UserService {
 
 	updateUser(formData: FormData): Observable<Object> {
 		let httpHeader: HttpHeaders = new HttpHeaders({
-			"Authorization": "Bearer " + localStorage.getItem('Token')
+			"Authorization": "Bearer " + localStorage.getItem('token')
 		})
 		let requestOption = {headers: httpHeader}
 		console.log(requestOption)
@@ -38,7 +38,7 @@ export class UserService {
 
 	getProfileImage() {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
 		return this.httpClient.get(`${this.userUrl}/get/profile`, requestOption)
@@ -46,7 +46,7 @@ export class UserService {
 
 	getUserDetails() {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
 		return this.httpClient.get(`${this.userUrl}/getName`, requestOption)
@@ -54,7 +54,7 @@ export class UserService {
 
 	addItemToFavourites(itemData: any) {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
 		return this.httpClient.post(`${this.userUrl}/add/item`, itemData, requestOption)
@@ -62,7 +62,7 @@ export class UserService {
 
 	getListOfFavourites(): Observable<Array<Favourites>> {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
 		return this.httpClient.get<Array<Favourites>>(`${this.userUrl}/get/user/favourite`, requestOption)
@@ -70,7 +70,7 @@ export class UserService {
 
 	removeFavourites(itemRemoved: any) {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
 		return this.httpClient.delete(`${this.userUrl}/remove/favourite?itemId=${itemRemoved}`, requestOption)
@@ -78,7 +78,7 @@ export class UserService {
 
 	checkList(itemId: number): Observable<boolean> {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
 		return this.httpClient.get<boolean>(`${this.userUrl}/check/list?itemId=${itemId}`, requestOption)
@@ -86,7 +86,7 @@ export class UserService {
 
 	changeAddress(address: Address) {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
 		return this.httpClient.post(`${this.userUrl}/add/address`, address, requestOption)
@@ -94,7 +94,7 @@ export class UserService {
 
 	getAddress(): Observable<Address | any> {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
 		return this.httpClient.get(`${this.userUrl}/get/address`, requestOption)
