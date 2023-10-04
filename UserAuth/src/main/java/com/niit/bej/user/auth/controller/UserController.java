@@ -35,13 +35,7 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<?> registerNewUser(@RequestBody UserDto userDto) throws UserAlreadyExistsException {
-        User user = new User(
-                userDto.getEmail(),
-                userDto.getPassword(),
-                userDto.getName(),
-                userDto.getPhoneNumber(),
-                userDto.getImageName(),
-                userDto.getRole());
+        User user = new User(userDto.getEmail(), userDto.getPassword(), userDto.getName(), userDto.getPhoneNumber(), userDto.getRole(), userDto.getImageName());
         return new ResponseEntity<>(userService.registerUser(user), HttpStatus.CREATED);
     }
 
