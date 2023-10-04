@@ -26,6 +26,7 @@ import {LoginComponent} from './components/login/login.component';
 import {RestaurantViewComponent} from './components/restaurant-view/restaurant-view.component';
 import {AddRestaurantComponent} from './components/add-restaurant/add-restaurant.component';
 import {AddItemsComponent} from './components/add-items/add-items.component';
+import {AdminComponent} from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {AddItemsComponent} from './components/add-items/add-items.component';
 	  LoginComponent,
 	  RestaurantViewComponent,
 	  AddRestaurantComponent,
-	  AddItemsComponent
+	  AddItemsComponent,
+	  AdminComponent
   ],
 	imports: [
 		BrowserModule,
