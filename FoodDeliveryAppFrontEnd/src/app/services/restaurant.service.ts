@@ -40,7 +40,7 @@ export class RestaurantService {
 
 	addRestaurant(addRestaurant: any) {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
 		return this.httpClient.post(`${this.apiBaseUrl}/addRestaurant`, addRestaurant, requestOption);
@@ -48,7 +48,7 @@ export class RestaurantService {
 
 	updateRestaurant(updateRestaurant: any, id: any) {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
 		return this.httpClient.delete(`${this.apiBaseUrl}/delete/${id}`, requestOption)
@@ -56,7 +56,7 @@ export class RestaurantService {
 
 	deleteRestaurant(id: number) {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
 		return this.httpClient.post(`${this.apiBaseUrl}/addItem/${id}`, requestOption);
@@ -64,7 +64,7 @@ export class RestaurantService {
 
 	addItem(addItem: any, id: number) {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
 		return this.httpClient.post(`${this.apiBaseUrl}/addItem/${id}`, addItem, requestOption)
@@ -72,7 +72,7 @@ export class RestaurantService {
 
 	updateItem(updateItem: any, id: number) {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
 		return this.httpClient.put(`${this.apiBaseUrl}/updateItem/${id}`, updateItem, requestOption)
@@ -80,7 +80,7 @@ export class RestaurantService {
 
 	deleteItem(deleteItem: any, id: number) {
 		let httpHeader = new HttpHeaders({
-			'Authorization': 'Bearer ' + localStorage.getItem("Token")
+			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
 		return this.httpClient.post(`${this.apiBaseUrl}/deleteItem/${id}`, deleteItem, requestOption)

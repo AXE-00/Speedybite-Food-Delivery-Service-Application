@@ -4,6 +4,7 @@ import {UserService} from "../../services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
 import {LoginService} from "../../services/login.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
 	selector: 'app-login', templateUrl: './login.component.html', styleUrls: ['./login.component.css']
@@ -16,11 +17,7 @@ export class LoginComponent {
 		password: ["", [Validators.required, Validators.minLength(8)]]
 	})
 
-	constructor(private formBuilder: FormBuilder,
-				private userService: UserService,
-				private snackbar: MatSnackBar,
-				private route: Router,
-				private loginStatus: LoginService) {
+	constructor(private formBuilder: FormBuilder, private userService: UserService, private snackbar: MatSnackBar, private route: Router, private loginStatus: LoginService, private toaster: ToastrService) {
 	}
 
 	get email() {
@@ -75,10 +72,8 @@ export class LoginComponent {
 					this.loginStatus.getLoginStatus();
 					this.route.navigateByUrl("");
 				}
+				this.toaster.success("Logged In Successfully!")
 
-				this.snackbar.open('Logged In Successfully', 'OK', {
-					duration: 3000, panelClass: ['mat-toolbar', 'mat-primary']
-				});
 			}, error: () => {
 				this.loginStatus.onFailure()
 				this.snackbar.open("Authorization failed, Please check the provided details and try again", 'OK', {
