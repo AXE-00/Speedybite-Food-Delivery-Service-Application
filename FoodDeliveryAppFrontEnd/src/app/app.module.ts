@@ -29,6 +29,7 @@ import {AddItemsComponent} from './components/add-items/add-items.component';
 import {AdminComponent} from './components/admin/admin.component';
 import {ContactComponent} from './components/contact/contact.component';
 import {CartComponent} from './components/cart/cart.component';
+import {AdminRestaurantViewComponent} from './components/admin-restaurant-view/admin-restaurant-view.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {CartComponent} from './components/cart/cart.component';
 	  AddItemsComponent,
 	  AdminComponent,
 	  ContactComponent,
-	  CartComponent
+	  CartComponent,
+	  AdminRestaurantViewComponent
   ],
 	imports: [
 		BrowserModule,
