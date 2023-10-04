@@ -1,0 +1,31 @@
+h1 {
+	background-color: rgb(110, 110, 218);
+	color: whitesmoke;
+	max-width: max-content;
+	margin-left: 90px;
+	border-radius: 5px;
+	padding: 15px;
+}
+
+section {
+	width: 100%;
+	margin-top: 130px;
+}
+
+section #addItemForm {
+	margin: auto;
+	width: 50%;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+
+#formBox {
+	background: #113f67;
+	padding: 4%;
+	border-radius: 6%;
+	box-shadow: 10px 10px 190px -50px;
+	margin: 10px;
+	width: 60%;
+}
