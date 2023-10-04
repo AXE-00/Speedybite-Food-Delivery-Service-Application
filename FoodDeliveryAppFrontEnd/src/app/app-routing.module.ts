@@ -9,6 +9,7 @@ import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-v
 import {AddItemsComponent} from "./components/add-items/add-items.component";
 import {AdminComponent} from "./components/admin/admin.component";
 import {ContactComponent} from "./components/contact/contact.component";
+import {CartComponent} from "./components/cart/cart.component";
 
 const routes: Routes = [
 	{path: "", component: DashboardComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
 	{path: "admin", component: AdminComponent},
 	{path: "adminAddItem", component: AddItemsComponent},
 	{path: "contact", component: ContactComponent},
+	{path: "cart", component: CartComponent},
 ];
 
 @NgModule({
