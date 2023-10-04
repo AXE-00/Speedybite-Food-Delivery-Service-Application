@@ -60,7 +60,8 @@ export class LoginComponent {
 	loginUser() {
 		this.userService.login(this.loginForm.value).subscribe({
 			next: data => {
-				localStorage.setItem('Token', this.responseData.Token);
+				this.responseData = data;
+				localStorage.setItem('token', this.responseData.token);
 				localStorage.setItem('email', this.responseData.email);
 
 				this.userRole === localStorage.getItem('email');
@@ -75,7 +76,7 @@ export class LoginComponent {
 					this.route.navigateByUrl("");
 				}
 
-				this.snackbar.open('Logged In Successfully', 'action', {
+				this.snackbar.open('Logged In Successfully', 'OK', {
 					duration: 3000, panelClass: ['mat-toolbar', 'mat-primary']
 				});
 			}, error: () => {
