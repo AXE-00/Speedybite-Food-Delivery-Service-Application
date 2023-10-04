@@ -1,1 +1,47 @@
-<p>add-items works!</p>
+<app-header></app-header>
+<section>
+	<div id="addItemForm">
+		<div id="formBox">
+			<h2 style="color: whitesmoke;">Add new food item to the existing restaurant..</h2>
+			<mat-form-field appearance="fill"><input [(ngModel)]="restaurantId" matInput name="restaurantId"
+													 placeholder="Enter restaurant Id" required type="text"
+													 width="500px"></mat-form-field>
+			<form [formGroup]="addItemForm">
+				<mat-form-field appearance="fill"><input formControlName="itemId" matInput name="itemId"
+														 placeholder="Enter item Id"
+														 required type="text" width="500px">
+				</mat-form-field>
+				<br>
+				<mat-form-field appearance="fill"><input formControlName="itemName" matInput name="itemName"
+														 placeholder="Enter item name " required
+														 type="text"></mat-form-field>
+				<br>
+
+				<mat-form-field appearance="fill"><input formControlName="imageUrl" matInput name="imageUrl"
+														 placeholder="ImageUrl of the food item"
+														 required type="text"></mat-form-field>
+
+				<mat-form-field appearance="fill"><input formControlName="description" matInput name="description"
+														 placeholder="Enter description" required
+														 type="text"></mat-form-field>
+
+				<br>
+				<mat-form-field appearance="fill"><input formControlName="itemPrice" matInput name="itemPrice"
+														 placeholder="Enter price"
+														 required type="text"></mat-form-field>
+
+				<br>
+				<mat-form-field appearance="fill"><input formControlName="itemRating" matInput name="itemRating"
+														 placeholder="Rating"
+														 required type="number"></mat-form-field>
+				<br>
+				<button (click)="addItem()" [disabled]="!addItemForm.valid" color="accent" mat-raised-button
+						type="submit">Add food
+					Items
+				</button>
+				<br><br>
+				<button (click)="updateItem()" color="accent" mat-raised-button>Update food items</button>
+			</form>
+		</div>
+	</div>
+</section>
