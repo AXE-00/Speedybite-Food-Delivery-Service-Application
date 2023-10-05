@@ -36,6 +36,7 @@ import {MatRippleModule} from "@angular/material/core";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatBadgeModule} from "@angular/material/badge";
+import {AddressDialogueComponent} from './components/address-dialogue/address-dialogue.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {MatBadgeModule} from "@angular/material/badge";
 	  CartComponent,
 	  AdminRestaurantViewComponent,
 	  AdminFoodItemsViewComponent,
-	  FoodItemComponent
+	  FoodItemComponent,
+	  AddressDialogueComponent
   ],
 	imports: [
 		BrowserModule,
