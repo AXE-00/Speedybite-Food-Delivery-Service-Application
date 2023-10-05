@@ -1,1 +1,26 @@
-<p>food-item works!</p>
+<div class="main">
+	<app-add-items></app-add-items>
+	<div>
+		<mat-card (click)="getItems(restaurant.restaurantId)" *ngFor="let restaurant of restaurants"
+				  class="example-card">
+			<img mat-card-image src="{{restaurant.imageUrl}}" style="margin: 5px;">
+			<h2
+				style="text-align: center; text-transform: uppercase; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color: rgb(0, 0, 0);font-weight: bolder;">
+				<h3>Id - {{restaurant.restaurantId}}</h3>
+				<span>{{restaurant.restaurantName}}</span>
+			</h2>
+			<mat-card-content>
+				<h3>
+					<div style="text-align: left;">Location: {{restaurant.location}}</div>
+					<a rel="noopener" style="color: black;  " target="_blank">
+						<div style="text-align: center;">
+							<div class="github-star-badge">{{restaurant.rating}}
+								<i class="fa fa-star" style="color: gold;"></i>
+							</div>
+						</div>
+					</a>
+				</h3>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div>
