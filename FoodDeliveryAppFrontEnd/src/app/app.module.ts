@@ -31,6 +31,7 @@ import {ContactComponent} from './components/contact/contact.component';
 import {CartComponent} from './components/cart/cart.component';
 import {AdminRestaurantViewComponent} from './components/admin-restaurant-view/admin-restaurant-view.component';
 import {AdminFoodItemsViewComponent} from './components/admin-food-items-view/admin-food-items-view.component';
+import {FoodItemComponent} from './components/food-item/food-item.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {AdminFoodItemsViewComponent} from './components/admin-food-items-view/ad
 	  ContactComponent,
 	  CartComponent,
 	  AdminRestaurantViewComponent,
-	  AdminFoodItemsViewComponent
+	  AdminFoodItemsViewComponent,
+	  FoodItemComponent
   ],
 	imports: [
 		BrowserModule,
