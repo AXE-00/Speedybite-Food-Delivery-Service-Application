@@ -32,6 +32,10 @@ import {CartComponent} from './components/cart/cart.component';
 import {AdminRestaurantViewComponent} from './components/admin-restaurant-view/admin-restaurant-view.component';
 import {AdminFoodItemsViewComponent} from './components/admin-food-items-view/admin-food-items-view.component';
 import {FoodItemComponent} from './components/food-item/food-item.component';
+import {MatRippleModule} from "@angular/material/core";
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatBadgeModule} from "@angular/material/badge";
 
 @NgModule({
   declarations: [
@@ -70,6 +74,10 @@ import {FoodItemComponent} from './components/food-item/food-item.component';
 		MatInputModule,
 		MatCardModule,
 		ToastrModule.forRoot(),
+		MatRippleModule,
+		MatTabsModule,
+		MatDialogModule,
+		MatBadgeModule
 	],
   providers: [],
   bootstrap: [AppComponent]
