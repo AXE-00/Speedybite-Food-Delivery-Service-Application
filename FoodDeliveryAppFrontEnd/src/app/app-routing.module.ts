@@ -12,6 +12,7 @@ import {ContactComponent} from "./components/contact/contact.component";
 import {CartComponent} from "./components/cart/cart.component";
 import {AddRestaurantComponent} from "./components/add-restaurant/add-restaurant.component";
 import {AdminRestaurantViewComponent} from "./components/admin-restaurant-view/admin-restaurant-view.component";
+import {AdminFoodItemsViewComponent} from "./components/admin-food-items-view/admin-food-items-view.component";
 
 const routes: Routes = [
 	{path: "", component: DashboardComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
 	{path: "admin", component: AdminComponent},
 	{path: "adminAddItem", component: AddItemsComponent},
 	{path: "adminAddRestaurant", component: AddRestaurantComponent},
+	{path: "adminFoodItemsView", component: AdminFoodItemsViewComponent},
 	{path: "adminRestaurantView", component: AdminRestaurantViewComponent},
 	{path: "contact", component: ContactComponent},
 	{path: "cart", component: CartComponent},
