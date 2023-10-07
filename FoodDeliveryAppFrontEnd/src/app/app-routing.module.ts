@@ -8,6 +8,10 @@ import {LoginComponent} from "./components/login/login.component";
 import {RestaurantViewComponent} from "./components/restaurant-view/restaurant-view.component";
 import {AddItemsComponent} from "./components/add-items/add-items.component";
 import {AdminComponent} from "./components/admin/admin.component";
+import {ContactComponent} from "./components/contact/contact.component";
+import {CartComponent} from "./components/cart/cart.component";
+import {AddRestaurantComponent} from "./components/add-restaurant/add-restaurant.component";
+import {AdminRestaurantViewComponent} from "./components/admin-restaurant-view/admin-restaurant-view.component";
 
 const routes: Routes = [
 	{path: "", component: DashboardComponent},
@@ -18,6 +22,10 @@ const routes: Routes = [
 	{path: "restaurantView", component: RestaurantViewComponent},
 	{path: "admin", component: AdminComponent},
 	{path: "adminAddItem", component: AddItemsComponent},
+	{path: "adminAddRestaurant", component: AddRestaurantComponent},
+	{path: "adminRestaurantView", component: AdminRestaurantViewComponent},
+	{path: "contact", component: ContactComponent},
+	{path: "cart", component: CartComponent},
 ];
 
 @NgModule({

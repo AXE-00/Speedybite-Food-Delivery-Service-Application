@@ -72,7 +72,7 @@ export class LoginComponent {
 					this.loginStatus.getLoginStatus();
 					this.route.navigateByUrl("");
 				}
-				this.toaster.success("Logged In Successfully!")
+				this.toaster.success("Logged In Successfully!", 'SpeedyBite')
 
 			}, error: () => {
 				this.loginStatus.onFailure()

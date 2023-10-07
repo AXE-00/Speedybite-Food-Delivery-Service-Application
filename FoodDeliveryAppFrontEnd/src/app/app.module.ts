@@ -27,6 +27,9 @@ import {RestaurantViewComponent} from './components/restaurant-view/restaurant-v
 import {AddRestaurantComponent} from './components/add-restaurant/add-restaurant.component';
 import {AddItemsComponent} from './components/add-items/add-items.component';
 import {AdminComponent} from './components/admin/admin.component';
+import {ContactComponent} from './components/contact/contact.component';
+import {CartComponent} from './components/cart/cart.component';
+import {AdminRestaurantViewComponent} from './components/admin-restaurant-view/admin-restaurant-view.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import {AdminComponent} from './components/admin/admin.component';
 	  RestaurantViewComponent,
 	  AddRestaurantComponent,
 	  AddItemsComponent,
-	  AdminComponent
+	  AdminComponent,
+	  ContactComponent,
+	  CartComponent,
+	  AdminRestaurantViewComponent
   ],
 	imports: [
 		BrowserModule,
