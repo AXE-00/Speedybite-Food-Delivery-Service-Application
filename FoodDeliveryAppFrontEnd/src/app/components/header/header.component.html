@@ -1,19 +1,45 @@
 <div class="mainNavigation">
 	<nav class="navbar navbar-expand-lg fixed-top" id="navbar">
-		<img alt="logo-image" id="logo" src="assets/images/logo/Speedy%20Bite.png">
-		<input #searchInput (input)="(searchInput.value)" (keyup.enter)="(searchInput.value)" id="searchbar"
+		<img (click)="moveToHome()" alt="logo-image" id="logo" src="assets/images/logo/Speedy%20Bite.png">
+		<input #searchInput (input)="onSearchTextChange(searchInput.value)"
+			   (keyup.enter)="onSearchTextChange(searchInput.value)" id="searchbar"
 			   placeholder="🔍  Search Restaurant And Cuisine Here!" type="text">
 		<ul>
 			<li>
 				<a id="aboutUs" routerLink="/aboutUs">ABOUT US</a>
 			</li>
-			<li>
-				<a id="register" routerLink="/register">SignUp</a>
+			<li *ngIf="isAdminLoggedIn">
+				<a routerLink="/cart">
+					<div class="demo-section">
+						<mat-icon *ngIf="cartCount>0" matBadge={{cartCount}} matBadgeColor="accent"><i
+							class="fa fa-shopping-cart"> </i></mat-icon>
+						<mat-icon *ngIf="cartCount==0"><i class="fa fa-shopping-cart"> </i></mat-icon>
+						<span class="cdk-visually-hidden">
+                 </span>
+					</div>
+				</a>
 			</li>
-			<li>
-				<a id="login" routerLink="/login">Login</a>
+			<li *ngIf="isLoggedIn"><a routerLink="/register">SignUp</a></li>
+			<li><a (click)="logout()" routerLink="/login">{{userType}}</a></li>
+
+			<!--To show user's name and image after logging in -->
+			<li (click)="toggleProfileVisibility()" *ngIf="isNotLoggedIn">
+				<div id="imgContainer">
+					<div id="userName" style="cursor: pointer;">
+						<img *ngIf="isNotLoggedIn" [src]="imageSrc" alt="user" id="userImg">
+						{{userInfo?.name}}<i class="fa fa-angle-down"
+											 style="font-size:18px;margin-left: 8px;margin-top:12px;"></i>
+					</div>
+				</div>
+
+				<!-- For User -->
+				<ul *ngIf="isAdminLoggedIn" [hidden]="!isProfileVisible" id="userList">
+					<li><a routerLink="/profile">Profile</a></li>
+					<li><a routerLink="/favourites">Favourite</a></li>
+					<li><a routerLink="/myOrders">Orders</a></li>
+				</ul>
 			</li>
 		</ul>
 	</nav>
 </div>
-
+<router-outlet></router-outlet>

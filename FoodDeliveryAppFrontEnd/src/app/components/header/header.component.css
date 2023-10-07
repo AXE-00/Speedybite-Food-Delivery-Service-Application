@@ -52,10 +52,36 @@ ul li a {
 	color: black;
 	padding: 10px 20px;
 	border-radius: 15px;
-	left: 450px;
+	left: 380px;
 	position: relative;
 }
 
 #aboutUs:hover {
 	box-shadow: 5px 5px 10px;
+}
+
+#userImg {
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+}
+
+#userList li {
+	position: relative;
+	float: none;
+	display: list-item;
+	padding: 10px;
+	margin-left: -20px;
+	border-bottom: 1px solid black;
+}
+
+#userName {
+	color: rgba(250, 164, 48, 255);
+	background-color: white;
+	padding: 4px 8px;
+	border-radius: 30px;
+}
+
+#imgContainer {
+	width: auto;
 }
