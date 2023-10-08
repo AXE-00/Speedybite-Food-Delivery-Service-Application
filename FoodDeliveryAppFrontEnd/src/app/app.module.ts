@@ -38,6 +38,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatBadgeModule} from "@angular/material/badge";
 import {AddressDialogueComponent} from './components/address-dialogue/address-dialogue.component';
 import {ProfileComponent} from './components/profile/profile.component';
+import {UpdateUserComponent} from './components/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import {ProfileComponent} from './components/profile/profile.component';
 	  AdminFoodItemsViewComponent,
 	  FoodItemComponent,
 	  AddressDialogueComponent,
-	  ProfileComponent
+	  ProfileComponent,
+	  UpdateUserComponent
   ],
 	imports: [
 		BrowserModule,
