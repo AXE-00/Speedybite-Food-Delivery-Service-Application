@@ -41,6 +41,7 @@ import {ProfileComponent} from './components/profile/profile.component';
 import {UpdateUserComponent} from './components/update-user/update-user.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 import {ViewItemsComponent} from './components/view-items/view-items.component';
+import {SearchComponent} from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import {ViewItemsComponent} from './components/view-items/view-items.component';
 	  ProfileComponent,
 	  UpdateUserComponent,
 	  PageNotFoundComponent,
-	  ViewItemsComponent
+	  ViewItemsComponent,
+	  SearchComponent
   ],
 	imports: [
 		BrowserModule,
