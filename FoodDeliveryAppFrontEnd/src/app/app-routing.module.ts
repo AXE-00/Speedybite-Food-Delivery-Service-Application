@@ -14,6 +14,8 @@ import {AddRestaurantComponent} from "./components/add-restaurant/add-restaurant
 import {AdminRestaurantViewComponent} from "./components/admin-restaurant-view/admin-restaurant-view.component";
 import {AdminFoodItemsViewComponent} from "./components/admin-food-items-view/admin-food-items-view.component";
 import {FoodItemComponent} from "./components/food-item/food-item.component";
+import {ProfileComponent} from "./components/profile/profile.component";
+import {UpdateUserComponent} from "./components/update-user/update-user.component";
 
 const routes: Routes = [
 	{path: "", component: DashboardComponent},
@@ -30,6 +32,8 @@ const routes: Routes = [
 	{path: "adminFoodItem", component: FoodItemComponent},
 	{path: "contact", component: ContactComponent},
 	{path: "cart", component: CartComponent},
+	{path: "profile", component: ProfileComponent},
+	{path: "update", component: UpdateUserComponent},
 ];
 
 @NgModule({
