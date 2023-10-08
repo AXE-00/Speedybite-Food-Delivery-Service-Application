@@ -17,6 +17,7 @@ import {FoodItemComponent} from "./components/food-item/food-item.component";
 import {ProfileComponent} from "./components/profile/profile.component";
 import {UpdateUserComponent} from "./components/update-user/update-user.component";
 import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
+import {ViewItemsComponent} from "./components/view-items/view-items.component";
 
 const routes: Routes = [
 	{path: "", component: DashboardComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
 	{path: "register", component: RegisterComponent},
 	{path: "login", component: LoginComponent},
 	{path: "restaurantView", component: RestaurantViewComponent},
+	{path: "viewItem", component: ViewItemsComponent},
 	{path: "admin", component: AdminComponent},
 	{path: "adminAddItem", component: AddItemsComponent},
 	{path: "adminAddRestaurant", component: AddRestaurantComponent},
