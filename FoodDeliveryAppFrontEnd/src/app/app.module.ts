@@ -40,6 +40,7 @@ import {AddressDialogueComponent} from './components/address-dialogue/address-di
 import {ProfileComponent} from './components/profile/profile.component';
 import {UpdateUserComponent} from './components/update-user/update-user.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
+import {ViewItemsComponent} from './components/view-items/view-items.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {PageNotFoundComponent} from './components/page-not-found/page-not-found.
 	  AddressDialogueComponent,
 	  ProfileComponent,
 	  UpdateUserComponent,
-	  PageNotFoundComponent
+	  PageNotFoundComponent,
+	  ViewItemsComponent
   ],
 	imports: [
 		BrowserModule,
