@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@700&display=swap');
+
+#mainContainer {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	background-color: rgba(225, 222, 222, 0.134);
+}
+
+#card {
+	width: 70%;
+	height: 35%;
+	transition: ease 0.6s;
+	box-shadow: 1px 2px 50px -10px;
+	margin: auto;
+	position: relative;
+}
+
+#imgContainer {
+	width: 30%;
+	height: 100%;
+	float: left;
+	clear: right;
+	background: linear-gradient(to bottom right, #FAA430FF, #f7aa5d);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+#editIcon {
+	position: absolute;
+	top: 15px;
+	right: 10px;
+	font-size: 20px;
+	color: white;
+	cursor: pointer;
+}
+
+img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	display: block;
+	border: 4px solid white;
+}
+
+.userData {
+	margin-left: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+p {
+	color: white;
+}
+
+
+.info {
+	float: right;
+	background-color: #f87c47;
+	width: 70%;
+	height: 100%;
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+.info1, .info2 {
+	width: 40%;
+	text-align: center;
+}
+
+.vertical {
+	position: absolute;
+	left: 50%;
+	border: .5px solid white;
+	height: 40%;
+	top: 35px;
+}
+
+h1 {
+	font-family: Goldman;
+	color: white;
+}
+
+.links {
+	width: 100%;
+	margin: auto;
+	clear: both;
+	position: absolute;
+	bottom: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+a {
+	text-decoration: none;
+	color: crimson;
+	padding: 6px 10px;
+	margin: 10px;
+}
