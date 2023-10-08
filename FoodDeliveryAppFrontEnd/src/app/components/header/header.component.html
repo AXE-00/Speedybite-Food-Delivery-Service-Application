@@ -19,8 +19,10 @@
 					</div>
 				</a>
 			</li>
-			<li *ngIf="isLoggedIn"><a routerLink="/register">SignUp</a></li>
-			<li><a (click)="logout()" routerLink="/login">{{userType}}</a></li>
+			<li *ngIf="isLoggedIn"><a routerLink="/register"
+									  style="position: relative; left: 30px; top: 2px;">SignUp</a></li>
+			<li><a (click)="logout()" routerLink="/login"
+				   style="position: relative; left: 60px; top: 2px;">{{userType}}</a></li>
 
 			<!--To show user's name and image after logging in -->
 			<li (click)="toggleProfileVisibility()" *ngIf="isNotLoggedIn">
@@ -33,10 +35,17 @@
 				</div>
 
 				<!-- For User -->
-				<ul *ngIf="isAdminLoggedIn" [hidden]="!isProfileVisible" id="userList">
+				<ul *ngIf="isAdminLoggedIn" [hidden]="!isProfileVisible" class="userList">
 					<li><a routerLink="/profile">Profile</a></li>
 					<li><a routerLink="/favourites">Favourite</a></li>
 					<li><a routerLink="/myOrders">Orders</a></li>
+				</ul>
+
+				<!-- For admin -->
+				<ul *ngIf="!isAdminLoggedIn" [hidden]="!isProfileVisible" class="userList">
+					<li><a routerLink="/profile">Profile</a></li>
+					<li><a routerLink="/adminRestaurantView">Add Restaurant</a></li>
+					<li><a routerLink="/adminFoodItem">Add Items</a></li>
 				</ul>
 			</li>
 		</ul>

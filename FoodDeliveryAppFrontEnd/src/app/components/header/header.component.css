@@ -82,6 +82,75 @@ ul li a {
 	border-radius: 30px;
 }
 
+nav.sticky #userName {
+	color: Black;
+	background-color: white;
+}
+
 #imgContainer {
 	width: auto;
 }
+
+nav.sticky {
+	background: linear-gradient(to right, rgb(240, 215, 56), rgb(240, 105, 56));
+	box-shadow: -20px 1px 100px -22px black;
+	transition: ease 0.7s;
+}
+
+ul {
+	float: right;
+	list-style: none;
+	margin-top: 15px;
+	margin-right: 0;
+	position: relative;
+}
+
+ul li {
+	display: inline-block;
+	margin: 0 12px;
+}
+
+ul li a {
+	color: black;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+nav.sticky ul li a {
+	color: white;
+}
+
+nav ul .userList {
+	position: absolute;
+	display: block;
+	text-align: center;
+	top: 63px;
+	background-color: #fff;
+	transition: ease .3s;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.userList li {
+	position: relative;
+	float: none;
+	display: list-item;
+	padding: 10px;
+	margin-left: -20px;
+	border-bottom: 1px solid black;
+}
+
+.userList li a {
+	color: black;
+}
+
+button, mat-sidenav {
+	display: none;
+}
+
