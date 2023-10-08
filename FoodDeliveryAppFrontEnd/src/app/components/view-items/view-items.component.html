@@ -1,1 +1,54 @@
-<p>view-items works!</p>
+<app-header></app-header>
+<section>
+	<div class="viewItems">
+		<h1>Menu</h1>
+		<div class="cardCont">
+			<div *ngIf="isLoading" id="loading"></div>
+			<div *ngFor="let restaurant of restaurantItems" class="card">
+				<div id="iconCont">
+					<img alt="" src="{{restaurant.item.imageUrl}}">
+					<div id="imgBg">
+						<mat-icon (click)="addToFavourites(restaurant);" mat-raised-button="accent"
+								  style="margin-left: 350px; margin-top:-15px;">
+							<a (click)="addToFavourites(restaurant)" *ngIf="!restaurant.inFav">favorite_border</a>
+							<a (click)="addToFavourites(restaurant)" *ngIf="restaurant.inFav" id="presentFav">favorite_selected</a>
+						</mat-icon>
+					</div>
+				</div>
+				<div id="content">
+					<span id="itemName">{{restaurant.item.itemName}}</span>
+					<p id="price">Price: <i class="fa fa-rupee"></i>{{restaurant.item.itemPrice}}</p>
+					<p id="rating">
+						Rating: {{restaurant.item.itemRating}}
+						<i class="fa fa-star"></i>
+					</p>
+					<div id="description">
+						<p>{{restaurant.item.description}}
+						</p>
+					</div>
+				</div>
+				<div class="order">
+					<button (click)="addToCart(restaurant.item)" *ngIf="!restaurant.inCart" color="primary"
+							mat-raised-button>Add to Cart
+					</button>
+					<button (click)="remove(restaurant.item)" *ngIf="restaurant.inCart;" class="btn"
+							id="sub" style="height: 39px;">-
+					</button>
+					<div *ngIf="restaurant.inCart;" class="form-outline" id="quantityInput">
+						<input class="form-control text-center" disabled="true" name="quantity"
+							   style="width:60px;" value={{restaurant.count}}/>
+					</div>
+					<button (click)="add(restaurant.item)" *ngIf="restaurant.inCart;" class="btn" id="add"
+							style="height: 39px;">+
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="backBtn">
+			<a routerLink=""
+			   style=" position:fixed; top: 100px; left: 20px; background-color: rgb(220,73,20);border-radius: 50%;width:40px;height: 40px;">
+				<i class="fa fa-arrow-circle-left" style=" color: white;font-size: 40px;"></i></a>
+		</div>
+	</div>
+</section>
