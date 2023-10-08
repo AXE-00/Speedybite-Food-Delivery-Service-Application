@@ -7,9 +7,7 @@ import {LoginService} from "../../services/login.service";
 import {Router} from "@angular/router";
 
 @Component({
-	selector: 'app-update-user',
-	templateUrl: './update-user.component.html',
-	styleUrls: ['./update-user.component.css']
+	selector: 'app-update-user', templateUrl: './update-user.component.html', styleUrls: ['./update-user.component.css']
 })
 export class UpdateUserComponent implements OnInit {
 	public uploadedImage: any = File;
@@ -17,16 +15,10 @@ export class UpdateUserComponent implements OnInit {
 	userPhone: any;
 	fileName: string = "";
 	updateForm = this.formBuilder.group({
-		name: ['', [Validators.minLength(3)]],
-		phoneNo: [null, [Validators.pattern(/^[6789]\d{9,9}$/)]]
+		name: ['', [Validators.minLength(3)]], phoneNo: [null, [Validators.pattern(/^[6789]\d{9,9}$/)]]
 	})
 
-	constructor(private formBuilder: FormBuilder,
-				private userService: UserService,
-				private toaster: ToastrService,
-				private dialogRef: MatDialogRef<UpdateUserComponent>,
-				private loginStatus: LoginService, @Inject(MAT_DIALOG_DATA) public dataX: any,
-				private router: Router) {
+	constructor(private formBuilder: FormBuilder, private userService: UserService, private toaster: ToastrService, private dialogRef: MatDialogRef<UpdateUserComponent>, private loginStatus: LoginService, @Inject(MAT_DIALOG_DATA) public dataX: any, private router: Router) {
 	}
 
 	get name() {
@@ -43,8 +35,7 @@ export class UpdateUserComponent implements OnInit {
 			this.userPhone = data.phoneNo;
 
 			this.updateForm.patchValue({
-				name: this.userName,
-				phoneNo: this.userPhone
+				name: this.userName, phoneNo: this.userPhone
 			})
 		})
 	}
@@ -60,5 +51,24 @@ export class UpdateUserComponent implements OnInit {
 		}
 	}
 
+	updateUser() {
+		const userData = this.updateForm.value;
+		const formData = new FormData();
+		formData.append('userInfo', JSON.stringify(userData))
+		formData.append('file', this.uploadedImage)
 
+		this.userService.updateUser(formData).subscribe({
+			next: data => {
+				this.router.navigateByUrl("")
+				this.dialogRef.close();
+				this.toaster.success("Updated successfully!", 'Profile')
+			}, error(error) {
+				alert("Oops! Profile not updated.")
+			}
+		})
+	}
+
+	clear() {
+		this.dialogRef.close();
+	}
 }
