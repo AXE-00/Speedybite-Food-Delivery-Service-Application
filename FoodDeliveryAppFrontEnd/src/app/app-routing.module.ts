@@ -16,6 +16,7 @@ import {AdminFoodItemsViewComponent} from "./components/admin-food-items-view/ad
 import {FoodItemComponent} from "./components/food-item/food-item.component";
 import {ProfileComponent} from "./components/profile/profile.component";
 import {UpdateUserComponent} from "./components/update-user/update-user.component";
+import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
 
 const routes: Routes = [
 	{path: "", component: DashboardComponent},
@@ -34,6 +35,7 @@ const routes: Routes = [
 	{path: "cart", component: CartComponent},
 	{path: "profile", component: ProfileComponent},
 	{path: "update", component: UpdateUserComponent},
+	{path: "**", component: PageNotFoundComponent},
 ];
 
 @NgModule({
