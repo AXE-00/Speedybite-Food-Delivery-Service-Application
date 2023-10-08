@@ -42,6 +42,7 @@ import {UpdateUserComponent} from './components/update-user/update-user.componen
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 import {ViewItemsComponent} from './components/view-items/view-items.component';
 import {SearchComponent} from './components/search/search.component';
+import {MyOrdersComponent} from './components/my-orders/my-orders.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import {SearchComponent} from './components/search/search.component';
 	  UpdateUserComponent,
 	  PageNotFoundComponent,
 	  ViewItemsComponent,
-	  SearchComponent
+	  SearchComponent,
+	  MyOrdersComponent
   ],
 	imports: [
 		BrowserModule,
