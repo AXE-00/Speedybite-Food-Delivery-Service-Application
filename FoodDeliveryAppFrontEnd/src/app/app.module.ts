@@ -43,6 +43,7 @@ import {PageNotFoundComponent} from './components/page-not-found/page-not-found.
 import {ViewItemsComponent} from './components/view-items/view-items.component';
 import {SearchComponent} from './components/search/search.component';
 import {MyOrdersComponent} from './components/my-orders/my-orders.component';
+import {FavouritesComponent} from './components/favourites/favourites.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import {MyOrdersComponent} from './components/my-orders/my-orders.component';
 	  PageNotFoundComponent,
 	  ViewItemsComponent,
 	  SearchComponent,
-	  MyOrdersComponent
+	  MyOrdersComponent,
+	  FavouritesComponent
   ],
 	imports: [
 		BrowserModule,
