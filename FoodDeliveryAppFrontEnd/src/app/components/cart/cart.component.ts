@@ -21,7 +21,7 @@ export class CartComponent {
 	items: Item[] = [];
 	total: number = 0;
 	subtotal: number = 0;
-	shipping: number = 0;
+	delivery: number = 0;
 	userAddress: Address | undefined;
 	currentTime1!: string;
 	currentTime2!: string;
@@ -101,16 +101,16 @@ export class CartComponent {
 
 		this.subtotal = this.total;
 
-		if (this.total > 100) {
-			this.shipping = 0;
+		if (this.total > 199) {
+			this.delivery = 0;
 		}
 
-		if (this.total < 100 && this.total > 0) {
-			this.shipping = 50;
+		if (this.total < 199 && this.total > 0) {
+			this.delivery = 50;
 		}
 
-		if (this.total < 100 && this.total > 0) {
-			this.subtotal = this.total + this.shipping;
+		if (this.total < 199 && this.total > 0) {
+			this.subtotal = this.total + this.delivery;
 		}
 	}
 
