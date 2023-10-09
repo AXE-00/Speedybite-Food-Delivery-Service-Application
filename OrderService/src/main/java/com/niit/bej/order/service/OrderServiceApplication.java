@@ -18,11 +18,7 @@ public class OrderServiceApplication {
     public FilterRegistrationBean<JwtFilter> orderFilter() {
         FilterRegistrationBean<JwtFilter> bean = new FilterRegistrationBean<>(new JwtFilter());
         bean.addUrlPatterns(
-                "/api/v1/order/insertOrder/*",
-                "/api/v1/order/placeOrder/*",
-                "/api/v1/order/cancelOrder/*",
-                "/api/v1/order/removeItem/*",
-                "/api/v1/order/addItem/*");
+                "/api/v1/order/*");
         bean.setOrder(Ordered.LOWEST_PRECEDENCE);
         return bean;
     }
