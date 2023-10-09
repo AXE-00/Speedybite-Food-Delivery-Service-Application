@@ -39,13 +39,13 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public User updateUser(String email, String password, String imageName, String phoneNumber) throws UserNotFoundException {
+    public User updateUser(String email, String password, String imageName, long phoneNumber) throws UserNotFoundException {
         User user = userRepository.findById(email).orElseThrow(() -> new UserNotFoundException("User not found"));
 
         if (password != null) {
             user.setPassword(password);
         }
-        if (phoneNumber != null) {
+        if (phoneNumber != 0) {
             user.setPhoneNumber(phoneNumber);
         }
         if (imageName != null) {

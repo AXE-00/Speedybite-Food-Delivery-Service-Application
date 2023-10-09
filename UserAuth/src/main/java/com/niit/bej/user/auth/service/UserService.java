@@ -9,6 +9,6 @@ public interface UserService {
 
     User loginUser(User user) throws UserNotFoundException;
 
-    User updateUser(String email, String password, String imageName, String phoneNumber) throws UserNotFoundException;
+    User updateUser(String email, String password, String imageName, long phoneNumber) throws UserNotFoundException;
 
 }

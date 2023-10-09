@@ -21,8 +21,8 @@ public class User {
     private String password;
     @Column(name = "name", length = 30)
     private String name;
-    @Column(name = "phoneNumber", length = 10, unique = true)
-    private String phoneNumber;
+    @Column(name = "phoneNumber")
+    private long phoneNumber;
     @Column(name = "role", length = 300)
     private String role;
     @Column(name = "imageName", length = 300)
