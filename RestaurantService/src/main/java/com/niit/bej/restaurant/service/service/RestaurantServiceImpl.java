@@ -36,11 +36,6 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public Restaurant getRestaurantByLocation(String location) {
-        return restaurantRepository.findByLocation(location);
-    }
-
-    @Override
     public Restaurant getByRating(double rating) {
         return restaurantRepository.findByRating(rating);
     }

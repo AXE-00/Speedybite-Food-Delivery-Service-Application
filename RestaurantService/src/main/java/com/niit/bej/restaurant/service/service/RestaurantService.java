@@ -13,7 +13,6 @@ public interface RestaurantService {
 
     List<Restaurant> getAllRestaurants();
 
-    Restaurant getRestaurantByLocation(String location);
 
     Restaurant getByRating(double rating);
 

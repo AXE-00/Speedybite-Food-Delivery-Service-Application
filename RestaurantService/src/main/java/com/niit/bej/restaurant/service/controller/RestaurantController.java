@@ -59,9 +59,9 @@ public class RestaurantController {
         return new ResponseEntity<>(restaurantService.getAllRestaurants(), HttpStatus.OK);
     }
 
-    @GetMapping("/getRating/{location}")
-    public ResponseEntity<?> getRestaurantByLocation(@PathVariable String location) {
-        return new ResponseEntity<>(restaurantService.getRestaurantByLocation(location), HttpStatus.OK);
+    @GetMapping("/getRating/{rating}")
+    public ResponseEntity<?> getByRating(@PathVariable double rating) {
+        return new ResponseEntity<>(restaurantService.getByRating(rating), HttpStatus.OK);
     }
 
 
