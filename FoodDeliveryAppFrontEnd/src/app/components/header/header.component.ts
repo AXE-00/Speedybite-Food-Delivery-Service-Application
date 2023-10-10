@@ -29,7 +29,9 @@ export class HeaderComponent implements OnInit {
 			this.loginService.findCardCount()
 		}
 		if (this.loginService.getLoginStatus()) {
-			if (this.userType === 'login') this.userType = 'logout'
+			if (this.userType === 'login') {
+				this.userType = 'logout'
+			}
 			this.isLoggedIn = false
 			this.isNotLoggedIn = true
 

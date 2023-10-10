@@ -1,0 +1,8 @@
+.gradient-custom {
+	background: linear-gradient(to right, #343232, rgb(255, 255, 255));
+	height: auto;
+}
+
+section {
+	margin-top: 70px;
+}
