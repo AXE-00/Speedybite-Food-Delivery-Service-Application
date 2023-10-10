@@ -72,7 +72,7 @@ public class UserController {
     @Getter
     static class UpdateRequest {
         private String password;
-        private String phoneNumber;
+        private long phoneNumber;
         private String imageName;
     }
 }

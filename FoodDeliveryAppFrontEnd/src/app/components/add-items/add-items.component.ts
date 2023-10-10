@@ -40,9 +40,9 @@ export class AddItemsComponent {
 		}
 	}
 
-	// view() {
-	// 	this.route.navigateByUrl('/adminItemView')
-	// }
+	view() {
+		this.route.navigateByUrl('/adminItemView')
+	}
 
 	updateItem() {
 		if (this.addItemForm.valid) {

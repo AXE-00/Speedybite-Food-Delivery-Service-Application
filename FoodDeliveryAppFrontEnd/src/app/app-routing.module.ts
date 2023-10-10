@@ -18,6 +18,8 @@ import {ProfileComponent} from "./components/profile/profile.component";
 import {UpdateUserComponent} from "./components/update-user/update-user.component";
 import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
 import {ViewItemsComponent} from "./components/view-items/view-items.component";
+import {MyOrdersComponent} from "./components/my-orders/my-orders.component";
+import {FavouritesComponent} from "./components/favourites/favourites.component";
 
 const routes: Routes = [
 	{path: "", component: DashboardComponent},
@@ -27,6 +29,8 @@ const routes: Routes = [
 	{path: "login", component: LoginComponent},
 	{path: "restaurantView", component: RestaurantViewComponent},
 	{path: "viewItem", component: ViewItemsComponent},
+	{path: "myOrders", component: MyOrdersComponent},
+	{path: "favourites", component: FavouritesComponent},
 	{path: "admin", component: AdminComponent},
 	{path: "adminAddItem", component: AddItemsComponent},
 	{path: "adminAddRestaurant", component: AddRestaurantComponent},

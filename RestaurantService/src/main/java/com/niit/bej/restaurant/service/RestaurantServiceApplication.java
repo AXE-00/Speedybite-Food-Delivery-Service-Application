@@ -19,14 +19,15 @@ public class RestaurantServiceApplication {
         filterRegistrationBean.setFilter(new JwtFilter());
 
         filterRegistrationBean.addUrlPatterns(
-                "/api/v1/restaurants/addRestaurant/*",
-                "/api/v1/restaurants/delete/*",
-                "/api/v1/restaurants/addNewCuisine/*",
-                "/api/v1/restaurants/update/*",
-                "/api/v1/restaurants/delete/*",
-                "/api/v1/restaurants/addItem/*",
-                "/api/v1/restaurants/updateItem/*",
-                "/api/v1/restaurants/deleteItem/*");
+                "/api/v1/restaurant/addRestaurant",
+                "/api/v1/restaurant/update/*",
+                "/api/v1/restaurant/delete/*",
+                "/api/v1/cuisine/addNewCuisine/*",
+                "/api/v1/cuisine/update/*",
+                "/api/v1/cuisine/delete/*",
+                "/api/v1/restaurant/addItem/*",
+                "/api/v1/restaurant/updateItem/*",
+                "/api/v1/restaurant/deleteItem/*");
         return filterRegistrationBean;
     }
 }

@@ -22,7 +22,7 @@
 			<li *ngIf="isLoggedIn"><a routerLink="/register"
 									  style="position: relative; left: 30px; top: 2px;">SignUp</a></li>
 			<li><a (click)="logout()" routerLink="/login"
-				   style="position: relative; left: 60px; top: 2px;">{{userType}}</a></li>
+				   style="position: relative; left: 20px; top: 2px;">{{userType}}</a></li>
 
 			<!--To show user's name and image after logging in -->
 			<li (click)="toggleProfileVisibility()" *ngIf="isNotLoggedIn">
