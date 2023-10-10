@@ -1,1 +1,29 @@
-<p>favourites works!</p>
+<app-header></app-header>
+<div id="fav">
+	<section>
+		<h1>Favourites</h1>
+
+		<div id="main">
+			<div *ngIf="isLoading" id="loading"></div>
+			<div *ngIf="dataPresent" id="mainCardCont">
+				<div *ngFor="let list of favouriteList" class="card">
+					<img alt="" src="{{list.imageUrl}}">
+					<div class="cardContent">
+						<span>{{list.itemName}}</span>
+						<p id="rating">{{list.itemRating}}<i class="fa fa-star"></i></p>
+						<p id="price">Price: <i class="fa fa-rupee"></i>{{list.itemPrice}}</p>
+						<div id="order">
+							<button (click)="addToCart(list)" color="primary" mat-raised-button>Add to Cart</button>
+						</div>
+						<div (click)="removeItemFromFavourite(list.itemId)" id="icon">
+							<i class="fa fa-trash-o"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div *ngIf="!dataPresent" id="emptyList">
+				<img alt="" id="notPresent" src="assets/images/nothing-here-giphy.gif">
+			</div>
+		</div>
+	</section>
+</div>
