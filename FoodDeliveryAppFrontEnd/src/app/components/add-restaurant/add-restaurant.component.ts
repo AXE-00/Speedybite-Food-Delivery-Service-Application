@@ -28,11 +28,15 @@ export class AddRestaurantComponent {
 		if (this.role === 'ashutosh.k.work@gmail.com') {
 			if (this.restaurantForm.valid) {
 				this.restaurantService.addRestaurant(this.restaurantForm.value).subscribe(response => {
-					this.snackbar.open(`Restaurant added successfully`)
+					this.snackbar.open(`Restaurant added successfully`, 'OK', {
+						duration: 3000
+					})
 					this.restaurantService.restaurantUpdated.emit(true)
 					this.restaurantForm.reset();
 				}, error => {
-					alert('add all the particulars')
+					this.snackbar.open("Add all the particulars", "Ok", {
+						duration: 3000
+					})
 				})
 			} else {
 				alert('You are not authorized to add or delete')
@@ -43,7 +47,9 @@ export class AddRestaurantComponent {
 	update() {
 		if (this.restaurantForm.valid) {
 			this.restaurantService.updateRestaurant(this.restaurantForm.value, this.restaurantForm.value.restaurantId).subscribe(response => {
-				this.snackbar.open(`Restaurant has been updated successfully!`)
+				this.snackbar.open(`Restaurant has been updated successfully!`, 'OK', {
+					duration: 3000
+				})
 				this.restaurantService.restaurantUpdated.emit(true)
 				this.restaurantForm.reset()
 			}, error => {
