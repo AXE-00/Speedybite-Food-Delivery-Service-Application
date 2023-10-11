@@ -20,23 +20,24 @@ import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.
 import {ViewItemsComponent} from "./components/view-items/view-items.component";
 import {MyOrdersComponent} from "./components/my-orders/my-orders.component";
 import {FavouritesComponent} from "./components/favourites/favourites.component";
+import {AuthGuard} from "./guard/auth.guard";
 
 const routes: Routes = [
 	{path: "register", component: RegisterComponent},
 	{path: "login", component: LoginComponent},
 	{path: "aboutUs", component: AboutUsComponent},
 	{path: "header", component: HeaderComponent},
-	{path: "myOrders", component: MyOrdersComponent},
-	{path: "cart", component: CartComponent},
-	{path: "profile", component: ProfileComponent},
+	{path: "myOrders", component: MyOrdersComponent, canActivate: [AuthGuard]},
+	{path: "cart", component: CartComponent, canActivate: [AuthGuard]},
+	{path: "profile", component: ProfileComponent, canActivate: [AuthGuard]},
 	{path: "update", component: UpdateUserComponent},
 	{path: "", component: DashboardComponent},
-	{path: "viewItem", component: ViewItemsComponent},
-	{path: "favourites", component: FavouritesComponent},
+	{path: "viewItem", component: ViewItemsComponent, canActivate: [AuthGuard]},
+	{path: "favourites", component: FavouritesComponent, canActivate: [AuthGuard]},
 	{path: "restaurantView", component: RestaurantViewComponent},
-	{path: "admin", component: AdminComponent},
-	{path: "adminFoodItemsView", component: AdminFoodItemsViewComponent},
-	{path: "adminRestaurantView", component: AdminRestaurantViewComponent},
+	{path: "admin", component: AdminComponent, canActivate: [AuthGuard]},
+	{path: "adminFoodItemsView", component: AdminFoodItemsViewComponent, canActivate: [AuthGuard]},
+	{path: "adminRestaurantView", component: AdminRestaurantViewComponent, canActivate: [AuthGuard]},
 	{path: "adminAddItem", component: AddItemsComponent},
 	{path: "adminAddRestaurant", component: AddRestaurantComponent},
 	{path: "adminFoodItem", component: FoodItemComponent},
