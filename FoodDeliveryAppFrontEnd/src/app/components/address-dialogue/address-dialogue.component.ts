@@ -20,11 +20,11 @@ export class AddressDialogueComponent {
 		private router: Router
 	) {
 		this.addressForm = this.formBuilder.group({
-			houseNo: ['', Validators.required],
+			houseNumber: ['', Validators.required],
 			landmark: ['', Validators.required],
 			street: ['', Validators.required],
 			city: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
-			pin: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
+			zipcode: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
 		});
 	}
 

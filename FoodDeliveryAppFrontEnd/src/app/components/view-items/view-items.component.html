@@ -10,8 +10,9 @@
 					<div id="imgBg">
 						<mat-icon (click)="addToFavourites(restaurant);" mat-raised-button="accent"
 								  style="margin-left: 350px; margin-top:-15px;">
-							<a (click)="addToFavourites(restaurant)" *ngIf="!restaurant.inFav">favorite_border</a>
-							<a (click)="addToFavourites(restaurant)" *ngIf="restaurant.inFav" id="presentFav">favorite_selected</a>
+							<a (click)="addToFavourites(restaurant)"
+							   *ngIf="!restaurant.favoriteItems">favorite_border</a>
+							<a (click)="addToFavourites(restaurant)" *ngIf="restaurant.favoriteItems" id="presentFav">favorite_selected</a>
 						</mat-icon>
 					</div>
 				</div>

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.niit.bej.user.service.exception.FavouriteItemNotFoundException;
 import com.niit.bej.user.service.exception.UserNotFoundException;
 import com.niit.bej.user.service.model.Address;
+import com.niit.bej.user.service.model.FavouriteCart;
 import com.niit.bej.user.service.model.User;
 import com.niit.bej.user.service.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -75,6 +76,16 @@ public class UserController {
             return new ResponseEntity<>("Not a valid email", HttpStatus.BAD_REQUEST);
         } else {
             return new ResponseEntity<>(userService.getUserName(email), HttpStatus.OK);
+        }
+    }
+
+    @PostMapping("/add/item")
+    public ResponseEntity<?> addFavouriteItem(@RequestBody FavouriteCart favouriteCart, HttpServletRequest httpServletRequest) {
+        String email = (String) httpServletRequest.getAttribute("email");
+        if (email.isEmpty()) {
+            return new ResponseEntity<>("Email is empty!", HttpStatus.BAD_REQUEST);
+        } else {
+            return new ResponseEntity<>(userService.addFavouritesInList(email, favouriteCart), HttpStatus.OK);
         }
     }
 
