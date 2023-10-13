@@ -20,14 +20,14 @@
 				</a>
 			</li>
 			<li *ngIf="isLoggedIn"><a routerLink="/register"
-									  style="position: relative; left: 10px; top: 2px;">SignUp</a></li>
+									  style="position: relative; left: 30px; top: 2px;">SignUp</a></li>
 			<li><a (click)="logout()" routerLink="/login"
-				   style="position: relative; top: 2px;">{{userType}}</a></li>
+				   style="position: relative; left: 20px; top: 2px;">{{userType}}</a></li>
 
 			<!--To show user's name and image after logging in -->
 			<li (click)="toggleProfileVisibility()" *ngIf="isNotLoggedIn">
 				<div id="imgContainer">
-					<div id="userName" style="cursor: pointer; position: relative; left: -26px; top: 1px;">
+					<div id="userName" style="cursor: pointer;">
 						<img *ngIf="isNotLoggedIn" [src]="imageSrc" alt="user" id="userImg">
 						{{userInfo?.name}}<i class="fa fa-angle-down"
 											 style="font-size:18px;margin-left: 8px;margin-top:12px;"></i>

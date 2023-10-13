@@ -4,7 +4,7 @@ a:hover {
 	color: #125699;
 }
 
-.github-star-badge {
+.rating-badge {
 	color: #24292e;
 	display: flex;
 	align-items: center;
@@ -15,25 +15,10 @@ a:hover {
 	margin-top: -20px;
 }
 
-.github-star-badge .material-icons {
+.rating-badge .material-icons {
 	height: 16px;
 	width: 16px;
 	margin-right: 4px;
-	color: gold;
-}
-
-.github-star-badge {
-	color: black;
-	display: flex;
-	align-items: center;
-	font-size: 15px;
-	padding: 3px 10px;
-	margin-left: 167px;
-	font-weight: 800;
-	margin-top: 25px;
-}
-
-.github-star-badge i {
 	color: gold;
 }
 
@@ -58,21 +43,20 @@ h1 {
 }
 
 .cardContainer {
-	width: 100%;
+	width: 95%;
 	height: auto;
 	margin-top: 40px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	border-radius: 15px;
 }
 
 .card {
-	width: 330px;
+	width: 270px;
 	height: 310px;
-	margin: 20px;
-	border-radius: 15px;
+	margin: 10px;
+	border-radius: 6px;
 	text-align: center;
 	position: relative;
 	transition: ease 0.6s;
@@ -80,7 +64,7 @@ h1 {
 }
 
 .card:hover {
-	scale: 1.05;
+	scale: 1.02;
 }
 
 .card2 {
@@ -88,7 +72,7 @@ h1 {
 	border: 1px solid rgb(162, 160, 160);
 	height: 330px;
 	margin: 10px;
-	border-radius: 15px;
+	border-radius: 6px;
 	text-align: center;
 	position: relative;
 	transition: ease 0.6s;
@@ -96,14 +80,14 @@ h1 {
 }
 
 .card2:hover {
-	scale: 1.05;
+	scale: 1.02;
 }
 
 img {
 	padding: 5px;
-	width: 330px;
+	width: 270px;
 	height: 200px;
-	border-radius: 15px;
+	border-radius: 6px;
 }
 
 span {

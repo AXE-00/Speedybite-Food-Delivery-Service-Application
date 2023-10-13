@@ -1,9 +1,9 @@
-<h2 mat-dialog-title>Delivery Address</h2>
+<h2 mat-dialog-title>Shipping Address</h2>
 <form [formGroup]="addressForm">
 	<mat-dialog-content>
 		<mat-form-field>
-			<input formControlName="houseNumber" matInput placeholder="House No" required>
-			<mat-error *ngIf="addressForm.controls['houseNumber'].hasError('required')">House No is required</mat-error>
+			<input formControlName="houseNo" matInput placeholder="House No" required>
+			<mat-error *ngIf="addressForm.controls['houseNo'].hasError('required')">House No is required</mat-error>
 		</mat-form-field>
 		<mat-form-field>
 			<input formControlName="landmark" matInput placeholder="Landmark" required>
@@ -20,9 +20,9 @@
 			</mat-error>
 		</mat-form-field>
 		<mat-form-field>
-			<input formControlName="zipcode" matInput placeholder="zipcode" required>
-			<mat-error *ngIf="addressForm.controls['zipcode'].hasError('required')">Zipcode is required</mat-error>
-			<mat-error *ngIf="addressForm.controls['zipcode'].hasError('pattern')">Only Numbers are Allowed</mat-error>
+			<input formControlName="pin" matInput placeholder="Pincode" required>
+			<mat-error *ngIf="addressForm.controls['pin'].hasError('required')">Pincode is required</mat-error>
+			<mat-error *ngIf="addressForm.controls['pin'].hasError('pattern')">Only Numbers are Allowed</mat-error>
 		</mat-form-field>
 	</mat-dialog-content>
 	<mat-dialog-actions>

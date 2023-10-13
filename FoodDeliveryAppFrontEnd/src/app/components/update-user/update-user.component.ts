@@ -15,7 +15,7 @@ export class UpdateUserComponent implements OnInit {
 	userPhone: any;
 	fileName: string = "";
 	updateForm = this.formBuilder.group({
-		name: ['', [Validators.minLength(3)]], phoneNumber: [null, [Validators.pattern(/^[6789]\d{9,9}$/)]]
+		name: ['', [Validators.minLength(3)]], contactNumber: [null, [Validators.pattern(/^[6789]\d{9,9}$/)]]
 	})
 
 	constructor(private formBuilder: FormBuilder, private userService: UserService, private toaster: ToastrService, private dialogRef: MatDialogRef<UpdateUserComponent>, private loginStatus: LoginService, @Inject(MAT_DIALOG_DATA) public dataX: any, private router: Router) {
@@ -26,16 +26,16 @@ export class UpdateUserComponent implements OnInit {
 	}
 
 	get phone() {
-		return this.updateForm.get('phoneNumber');
+		return this.updateForm.get('contactNumber');
 	}
 
 	ngOnInit(): void {
 		this.userService.getUserDetails().subscribe((data: any) => {
 			this.userName = data.name;
-			this.userPhone = data.phoneNumber;
+			this.userPhone = data.contactNumber;
 
 			this.updateForm.patchValue({
-				name: this.userName, phoneNumber: this.userPhone
+				name: this.userName, contactNumber: this.userPhone
 			})
 		})
 	}

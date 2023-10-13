@@ -42,8 +42,7 @@
 									</button>
 								</div>
 								<p class="text-start text-md-center">
-									<strong
-										class="fa fa-rupee">Total: {{calculateCartItemTotalPrice(item.itemName)}}</strong>
+									<strong>{{calculateCartItemTotalPrice(item.itemName)}}</strong>
 								</p>
 							</div>
 						</div>
@@ -67,22 +66,9 @@
 				<div *ngIf="subtotal>0" class="card mb-4 mb-lg-0">
 					<div class="card-body">
 						<p><strong>We accept</strong></p>
-						<img
-							alt="payment images"
-							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCCKvYeep33Z3DHDyb1Q6PurLenOJwKf1rrQ&usqp=CAU"
-							width="350px">
-						<img
-							alt="UPI" class="me-2"
-							src="https://getlogo.net/wp-content/uploads/2020/10/unified-payments-interface-upi-logo-vector.png"
-							width="55px">
-						<img
-							alt="QR code" class="me-2"
-							src="data:image/png;base64,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"
-							width="55px">
-						<img
-							alt="apple pay" class="me-2"
-							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARkAAAC0CAMAAACXO6ihAAAAh1BMVEX///8AAABhYWEZGRkWFhYdHR3Y2Njd3d23t7ciIiLCwsIrKyv7+/tJSUmlpaXv7+9RUVHOzs6Li4s4ODiXl5fr6+tCQkKsrKxsbGx2dnaQkJDk5OT09PSenp40NDTLy8t9fX1aWlqDg4MLCwt6enqzs7NnZ2dVVVVxcXFEREReXl5MTEwuLi4uGzPEAAAK1UlEQVR4nO2da2OjKhCGJc3VpLmnSZs0l3aTtpv9/79vlUFFZZBBu7qW98M5XRWCT2CAYSCeJ6t/fdndV73uO/tJen/vHe+75bbvIeo/113E2vWpgjN4rLtYjdDXIAvmJb43OnZ+no6j+P2XaTCiwixPM6yttV6z0xIgPMpXj+GVnl9XoRojvxeCOCYX7opa9EO1TNUabmNchQH5IYwX+HvvwMjiaPb8z7lrSimFDWoe/jEI/ujWXZpGqRsQCYc15+D/w7oL0ygNAyLn4P9hs6q5KE0TIAkb01vdRWmY3nhzGrqOKSefG5h18N9N3UVpmDYBk7X37MxMXgGTZ+/iyOQVMLl4X4yt6i5I47QK504rRyYvDmXM2FfdBWmcAjJjb8TYre6CNE43xkZej7FO3QVpnDqM9bwHRyavgMyDI6OSI4OpEzpmHBmFHBlMjgwmRwaTI4PJkcHkyGByZDA5MpgcGUyODCZHBpMjg8mRweTIYHJkMH0bmcHr7f8OVfomMtsgS/ZZbZ7/WN9CxoegWkcmq5uIxF5XmOe/V/VkDuMoRv3/jm+rnkyys+H/jtKvnMxXDOaPcZrJfjHcrpdc0+GiGUFOVZNZJ1Vma/K8//qZsIw1f91XVB57VUxmJr2eUYI8FaGxEdhvVMVkpC11Zm+Gkgl0raZMlqqWjFRlDK2Mjgxb1WnDqyUzTd7K0IzGzx8/br8CfRxTbBaVFMtK1ZJ5Ir8Sf/ghZW/3110T0FRLJn6hEylFL3c5qXy1NahKyezF2zyY97kIGbExjdUYWlkpmQW8zAshCUomysywj6telZLph9/x64SSBCfD94mEqqJkFqqUzGSxJ2HxtGS8a62VpiSZgz99O5+npxyQwfTzaTx+uq0L9sDoyMB+4LosTRkyk+0q7kJ+yy6H/ZJJ6ug6Ki2Zfp3dUwkya5bWGxynIPMSGuOjEi0ZD84jqMfPY02mn339kMByO+0orjP2C8tGTwZOqqjH025L5lUJANcRMc16MuBQ/k0sWzWyJPOio6DUSI1GTwaGjo/Y7W+VHRk6GMaelDnpyRwgafbyZnBanPYHUpHJsiIztACDzKX0ZLwcmcPwV+yBZ5dpptua9bm0hYdHil0BNmQONlze1WWhkTldstnuUjVHlEyHRriQimd2NmRyxTPQEclLTwZeI7Izp6Mq55TnD5a6njWFh65D3bRTsiCzUJWvQKiHT08GLDD0TYcPJG+ZgyibpvTGQyQLMlgJdUKtpZ4M9Npw/MANzXwnpejyK/hUa1CILhKdzB4tIS7bMTD0gUP5ndjHdMHt7saP3fHTJAUMzPGp1pvEWi86meykwEA7PDc9GZhnCGsZulIftvKwaPJbfEDSRQkbnDv3LfV5BvbXhsyYkaUZeWjJQPWMDsbxFebhJYce2jpWKaB5Yt1BSmQyFl22bl+vlswnvxuHVKgmX9A6pJUKEaGC5AizOqOFLDIZn07G1gshLJp+rPvAn5EcrJBI3flMtNjSIpOxMDO67HRkoIMtsJYwHn9PLkADU8+1tvzeWZ+jEJkM/cjTuy47DZk5JC/yn8JTSXPaZy9IAouunz1EIpOZk8mcC99LSUYcllk4JoOvSnKqQmyFyqmz4XfGRTmCyGRyDrtCaRdZMDKROSuO9YMWIkW+Cce64lFoaIYedzIZ+oHK2pKoyfgRf21LBMGEQJ4iQFKFax5uGC5vkMmQweidlfyJbl8q7X74K05qAEY0kbl0BdLnPYF5hjqRyYwYVdrOJX5q9DEPdH+QU6LeY1nQE8vGA1tyAItkGkPwD+zMRZedLqHZcW1AJtUgYZieC7rNP6gTmcydTKZ4PKOUyer4ZLbfb/IfApEUD5mHYeQz9QxFJrPD3gSXbvyAJBkXrI4Phi+3dO2V74qhbqbdwIzKeHmZTMbCOa4zwarnO1PtXHgzvSgSpR6Bry89xZ8prulEJnOlk9E1J35/5PX9bRgQvN36/YIlgSti6FIPCddeqn5AEzOP4SKTGagLptUrnh2/b2wVxbCumD6MulI2hZvld89YdP+MBRnNdJlEZvMnn/XTo4oMzHvlrnxQ9B1lRSfzlC9dofBVRgoZeZlrNz0NDlIWGTJi7USy/W8FX1FOdDI265P4wJNAJo5q7KZj71VkvEv2Y/m/KWtHdDInGzIoGnMyken/kx0AKslkXXtQauOQU89qVcWKDPYBxmQiy5+3FEoy4mrs19wpH9LJgow6QqZQ78oO05iMmK8pMlGTgbCvaC0Sxn6kTXoWZOzW+wP9VvjZTMmI7lo1nFaTEa49YZGgKZLC2mzWtW3JqN7LlAwySUyKk7sMfehS+sc894xONmTOlmBG2GsVk9EtuiK3ZNcezDppR63bkLEZBodSDbMMyUAEw1l5D4PGEhxrnCsqq8giC09EKNU015AMdC1qbzlGBlx7/MX4ZIES9O9ZkrEb0pzR1yomA9NI5Wr1DCMjXHuH6C/ixlW7OD26Y48hPYMhGYaTwZdrwWpfxcyAGgdpR8YmuEjt1C1PZoeSgenEh0hNjbe2jHq1iC5ST+ZIZFRjxSgCQXFLuPYmfewBrSzJzBhVyPzfkAy4GlQ+3E+cjAjTGvLh8Nn85UC2MeTUhX8sUM+QDPgQFKYi7gxUqeDmhdsbs8VsSdb7DohuGsyza0hGmNmcoUnqLp47l2qUqZc1GVp7QudyhmSEycgu1ksxg8pkSc02XkyJZb+LhzKxxMNvDclEM5KP1EVpe7iaTPL1UffqldrfRIikKe8Hjt5xnNiLoQicvmg+IoppsfihizJ74hSHgKilsX6mZJL6sVr7i4Wf7KNaQOVVexiiYBOLDfGldgsarv7rxljGZLDF0ZPogZA4V3jI5ncTS+0wzaK5L6fD6zr7CtpISnMy8chF1mgTTf0RFwNMK+n2t/Te20tSyKdhbOX68kvoBxL8kezaPKL8MhyfPsMoGBlJQgHp9rf8fu2hCHg5p2vz5PWPVHaN2CiQUeRymOsyzWWS5NFVT8uAmlEcTlbld7L3t9Ohql7MTr6PBrlby3/jzqHeZW00qAW7bXU0VMvP7eRgPoqfU6jdZIYGlg5Tu8lA12CXttVkYNpkeexRm8nAjIK2ypSozWTAUWLbP7aYDAx+rI/ibS8ZMZm0PgmgtWSEU8v+wKO2khFLCpY9dqiWkonWWkocd9ROMlFMQpnTjlpJJjo2qNRhRy0k049W3cv9ynHryGyiff9lf/65bWSSDbBlzw1rG5nYCV36QOq2kRHhROPyJ7y3jYzH/c82awVZtY7MthouLSQzqeosy9aRqUyODCZHBpMjg8mRweTIYHJkMDkymBwZTI4MJkcGkyODyZHB5MhgcmQwOTKYHBlMjgymThjB7cgoxMn0HJm8OuF+iFHppc4W6hZuMRwz9lV3QRqnVbg5cVXjzz42VhzKoyOT1yrcBR0GVtRdkMaJhUcMPzsyebHwQLcwPp94BknrFR5ztOabXWhHHbVfPg+ADKOKTX6e5ifpDfbSMWdoshJIziVjZ9un0MCcPYgsttnt3V51o/0/8wqCIdukZbxljO/scN1TJF/ay/zi0CTyU3vw71VEF7dDfDOddHIUP82l56qN3wtBpA5kEEedL0/1/AZ6EzQ7iZMnMmeNJSeMj46dn6djcmZMzqoMHplTUGFUG5n79J+Ba5ue0WMk+tfl7r4adek/7vU/6707Wt13y2say1/UdnEeZwzq0AAAAABJRU5ErkJggg=="
-							width="65px">
+						<img alt="Visa" class="me-2"
+							 src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+							 width="45px"/>
 					</div>
 				</div>
 			</div>
@@ -105,13 +91,11 @@
 								<span>Add Your Address</span>
 							</li>
 						</ul>
-						<button (click)="changeAddress()" *ngIf="userAddress!=null"
-								class="btn btn-primary btn-lg btn-block"
+						<button (click)="changeAddress()" *ngIf="userAddress!=null" class="btn btn-primary btn-lg btn-block"
 								type="button">
 							Change Address
 						</button>
-						<button (click)="changeAddress()" *ngIf="userAddress==null"
-								class="btn btn-primary btn-lg btn-block"
+						<button (click)="changeAddress()" *ngIf="userAddress==null" class="btn btn-primary btn-lg btn-block"
 								type="button">
 							Add Address
 						</button>
@@ -123,12 +107,12 @@
 					<div class="card-body">
 						<ul class="list-group list-group-flush">
 							<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-								Items
-								<span class="fa fa-rupee">{{total}}</span>
+								Products
+								<span>{{total}}</span>
 							</li>
 							<li class="list-group-item d-flex justify-content-between align-items-center px-0">
 								Delivery
-								<span class="fa fa-rupee">{{delivery}}</span>
+								<span>{{delivery}}</span>
 							</li>
 							<li
 								class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
@@ -138,11 +122,10 @@
 										<p class="mb-0">(including Delivery)</p>
 									</strong>
 								</div>
-								<span class="fa fa-rupee"><strong>{{subtotal}}</strong></span>
+								<span><strong>{{subtotal}}</strong></span>
 							</li>
 						</ul>
-						<button (click)="goToPayment()" *ngIf="userAddress!=null"
-								class="btn btn-primary btn-lg btn-block"
+						<button (click)="goToPayment()" *ngIf="userAddress!=null" class="btn btn-primary btn-lg btn-block"
 								type="button">
 							Go to Payment
 						</button>

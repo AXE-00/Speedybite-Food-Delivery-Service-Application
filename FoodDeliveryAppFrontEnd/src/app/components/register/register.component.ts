@@ -16,7 +16,7 @@ export class RegisterComponent {
 		password: ["", [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{7,}$/)]],
 		confirmPassword: ["", [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{7,}$/)]],
 		name: ["", [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z]+$')]],
-		phoneNumber: ["", [Validators.required, Validators.pattern('^[6-9]\\d{9}$')]]
+		contactNumber: ["", [Validators.required, Validators.pattern('^[6-9]\\d{9}$')]]
 	}, {validators: [this.validatePasswordMatch]})
 
 	constructor(private formBuilder: FormBuilder,
@@ -43,7 +43,7 @@ export class RegisterComponent {
 	}
 
 	get contact() {
-		return this.registerForm.get('phoneNumber');
+		return this.registerForm.get('contactNumber');
 	}
 
 	validateEmails(control: AbstractControl) {

@@ -51,7 +51,7 @@ export class RestaurantService {
 			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
-		return this.httpClient.put(`${this.apiBaseUrl}/update/${id}`, requestOption)
+		return this.httpClient.delete(`${this.apiBaseUrl}/delete/${id}`, requestOption)
 	}
 
 	deleteRestaurant(id: number) {
@@ -59,7 +59,7 @@ export class RestaurantService {
 			'Authorization': 'Bearer ' + localStorage.getItem("token")
 		})
 		let requestOption = {headers: httpHeader}
-		return this.httpClient.delete(`${this.apiBaseUrl}/delete/${id}`, requestOption);
+		return this.httpClient.post(`${this.apiBaseUrl}/addItem/${id}`, requestOption);
 	}
 
 	addItem(addItem: any, id: number) {
