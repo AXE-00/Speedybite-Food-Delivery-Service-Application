@@ -142,3 +142,65 @@ p {
 .github-star-badge i {
 	color: gold;
 }
+
+
+/* Responsive styles for medium screens */
+@media screen and (max-width: 1199px) {
+	.github-star-badge {
+		margin-left: 167px;
+		margin-top: 25px;
+	}
+
+	.rating-badge {
+		margin-left: 167px;
+		margin-top: 25px;
+	}
+}
+
+/* Responsive styles for small screens */
+@media screen and (max-width: 667px) {
+	.github-star-badge, .rating-badge {
+		margin-left: 10px;
+		margin-top: 15px;
+		font-size: 12px;
+	}
+
+	h1 {
+		font-size: 24px;
+		padding-top: 10px;
+	}
+
+	#image {
+		background-size: contain;
+	}
+
+	.loading {
+		width: 80vw;
+		height: 40vh;
+	}
+
+	.cardContainer {
+		margin-top: 20px;
+	}
+
+	.card, .card2 {
+		width: 100%;
+		max-width: 330px;
+		margin: 10px;
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+
+	p, #itemName {
+		font-size: 12px;
+		top: 260px;
+		left: 200px;
+	}
+
+	.addToCart {
+		left: 10%;
+	}
+}
