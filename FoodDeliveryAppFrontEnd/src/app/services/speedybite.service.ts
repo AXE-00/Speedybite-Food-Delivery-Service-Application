@@ -54,7 +54,7 @@ export class SpeedybiteService {
 		let httpHeader = new HttpHeaders({
 			'Authorization': 'Bearer ' + localStorage.getItem('token')
 		})
-		let requestOptions = {headers: httpHeader}
+		let requestOptions = {headers: httpHeader, body: items}
 		const url = `${this.orderServiceUrl}cancelOrder/${email}`
 		return this.httpClient.delete<Item[]>(url, requestOptions)
 	}
