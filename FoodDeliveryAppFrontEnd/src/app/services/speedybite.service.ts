@@ -65,7 +65,7 @@ export class SpeedybiteService {
 		})
 		let requestOptions = {headers: httpHeader}
 		const url = `${this.orderServiceUrl}placeOrder/${email}`
-		return this.httpClient.post<Item[]>(url, requestOptions)
+		return this.httpClient.post<Item[]>(url, items, requestOptions)
 	}
 
 	public createPaymentOrder(data: PaymentOrder) {
