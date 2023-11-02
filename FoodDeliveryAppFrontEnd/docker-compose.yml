@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+    speedybite-app-frontend-service:
+        container_name: speedybite-app-frontend-container
+        build: .
+        ports:
+            - "4200:80"
