@@ -8,27 +8,27 @@
 
 ## Key Features for user
 
-- User can search any restaurant dynamically just by entering initial words.
-- User can choose items from menu to place an order .
-- Total cost of the order is displayed and user also gets free delivery after total amount exceeding certain amount.
-- User can mark items as their favourite.
-- User can access a variety of payment options due to the implementation of the RazorPay API.
+- Users can search any restaurant dynamically just by entering initial words.
+- Users can choose items from the menu to place an order.
+The total cost of the order is displayed and the user also gets free delivery after the total amount exceeds a certain amount.
+- User can mark items as their favorite.
+- Users can access a variety of payment options due to the implementation of the RazorPay API.
 - User can check out from their cart and place an order.
 - User can cancel a placed order.
 - User can check their order history and running order.
-- User can view invoice for individual orders.
+- User can view invoices for individual orders.
 - User can upload profile picture and update profile details.
 
 ---
 
 ## Key Features for admin
 
-- Admin can add a restaurant, update and delete restaurant details.
-- Admin can add, update and delete menu of each restaurant.
+- Admin can add a restaurant, and update and delete restaurant details.
+- Admin can add, update, and delete the menu of each restaurant.
 
 ---
 
-### This Projects covers the following Angular features:
+### This Project covers the following Angular features:
 
 - Multiple Modules
 - Components, Template and DataBinding
@@ -46,7 +46,7 @@
 ### This project covers the following Backend features:
 
 - Microservices
-- REST APIs using springboot
+- REST APIs using spring boot
 - Spring Data JPA for relational databases
 - Spring Data MongoDB for NoSQL databases
 - JWT-based security for APIs
@@ -67,9 +67,9 @@
 
 * **Clone the project or clone your own forked project**
 
-- **Run the compose.yml for backend if you have docker OR run each microservice separately after creating and
+- **Run the compose.yml for the backend if you have docker OR run each microservice separately after creating and
   configuring application.properties**
-- **Run docker-compose.yml for frontend if you have docker OR go into you frontend directory from a terminal and type:**
+- **Run docker-compose.yml for frontend if you have docker OR go into your frontend directory from a terminal and type:**
 
 ```
  npm install latest
