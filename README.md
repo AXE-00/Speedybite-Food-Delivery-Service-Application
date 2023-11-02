@@ -3,9 +3,9 @@
 > ## Below is a glimpse of my project
 > ![UI](Screenshot%20of%20UI.png)
 > ![UI](Screenshot%20of%20restaurants.png)
+
 ---
-![Project gif](project-video.gif)
----
+
 ## Key Features for user
 
 - User can search any restaurant dynamically just by entering initial words.
