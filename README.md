@@ -10,7 +10,8 @@
 
 - Users can search any restaurant dynamically just by entering initial words.
 - Users can choose items from the menu to place an order.
-The total cost of the order is displayed and the user also gets free delivery after the total amount exceeds a certain amount.
+  The total cost of the order is displayed and the user also gets free delivery after the total amount exceeds a certain
+  amount.
 - User can mark items as their favorite.
 - Users can access a variety of payment options due to the implementation of the RazorPay API.
 - User can check out from their cart and place an order.
@@ -75,7 +76,7 @@ The total cost of the order is displayed and the user also gets free delivery af
  npm install latest
 ```
 
-- **After installing npm successfully, in the frontend directory type:**
+- **After installing npm successfully, open a terminal in the frontend directory and type:**
 
 ```
     ng serve --hmr --open
