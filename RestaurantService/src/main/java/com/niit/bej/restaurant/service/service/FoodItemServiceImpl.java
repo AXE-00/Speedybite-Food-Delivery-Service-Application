@@ -53,7 +53,7 @@ public class FoodItemServiceImpl implements FoodItemService {
             existingItem.setItemName(items.getItemName());
         }
         if (items.getImageUrl() != null) {
-            existingItem.setItemRating(items.getItemRating());
+            existingItem.setImageUrl(items.getImageUrl());
         }
         if (items.getItemRating() != 0) {
             existingItem.setItemRating(items.getItemRating());
